@@ -1,0 +1,32 @@
+# --- Credenciales ---
+.env
+*.key
+
+# --- Datos (no se publican: derechos de autor, privacidad y contaminación de la evaluación) ---
+data/corpus/raw/
+data/corpus/processed/
+data/bateria/*.csv
+data/bateria/*.jsonl
+!data/bateria/ejemplo_esquema.csv
+
+# --- Ejecuciones y registros ---
+experiments/runs/
+*.log
+logs/
+
+# --- Índices y artefactos pesados ---
+*.faiss
+*.npy
+*.pkl
+indices/
+
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# --- Sistema ---
+.DS_Store
+Thumbs.db
