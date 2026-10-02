@@ -1,0 +1,7 @@
+# Dependencias previstas (preliminar; se fijarán versiones exactas al implementar)
+pyyaml        # lectura de config.yaml
+numpy         # vectores y similitud coseno
+pandas        # manejo del banco de preguntas y de resultados
+scipy         # pruebas estadísticas (Wilcoxon, bootstrap)
+statsmodels   # ANCOVA y prueba de McNemar
+python-dotenv # variables de entorno

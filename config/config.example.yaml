@@ -1,0 +1,43 @@
+# Configuración del chatbot de cinemática (plantilla)
+# Estado de cada parámetro: definido | preliminar | calibrar (con desarrollo/validación)
+
+version_config: "v0.1"
+
+corpus:
+  version: "corpus_v1"            # definido al validar el corpus
+  gravedad: 10                    # m/s², convención de la academia
+
+chunking:
+  estrategia: "unidad_semantica"  # preliminar: definición, fórmula+significado, procedimiento, ejemplo resuelto
+  l_max_tokens: null              # calibrar
+  solapamiento_tokens: 0          # solo si una unidad se divide por exceder l_max
+
+embeddings:
+  modelo: null                    # preliminar: modelo multilingüe (español), versión fija
+  normalizar: true
+
+retrieval:
+  busqueda: "exacta_coseno"       # índice plano (corpus pequeño)
+  top_k: 5                        # preliminar; calibrar entre {3, 5, 8}
+  reranking: false                # calibrar (solo si Recall@k alto y MRR bajo)
+  referencia_lexica: "bm25"
+
+seleccion_contexto:
+  umbral_tau: null                # calibrar en validación (exactitud balanceada)
+  max_tokens_contexto: null       # preliminar
+
+preprocesamiento:
+  historial_turnos: 2             # preliminar; solo en el piloto
+
+prompt:
+  plantilla: "prompts/tutor_v0.1.txt"
+
+llm:
+  proveedor: null                 # calibrar: comparación calidad–costo–latencia
+  modelo: null                    # identificador con fecha (no alias "latest")
+  temperatura: 0
+  max_tokens: null                # preliminar
+  seed: null                      # si el proveedor lo admite
+
+costos:
+  tabla_precios_fecha: null       # fecha de consulta de las tarifas

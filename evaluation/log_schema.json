@@ -1,0 +1,21 @@
+{
+  "descripcion": "Registro por consulta (una línea JSONL por consulta). Los valores constantes de una configuración se guardan una sola vez en config/.",
+  "campos": {
+    "run_id": "identificador de la ejecución",
+    "config_hash": "hash del archivo de configuración usado",
+    "commit": "commit de Git del código",
+    "fecha": "fecha y hora (ISO 8601)",
+    "consulta_id": "id de la pregunta (batería) o id anonimizado (piloto)",
+    "consulta_texto": "texto de la consulta",
+    "topk": [{"chunk_id": "string", "score": "float", "rango": "int"}],
+    "contexto_final": ["chunk_id"],
+    "prompt_final_hash": "hash del prompt enviado",
+    "respuesta_json": {"decision": "responder|abstener", "solucion_interna": "string", "mensaje_estudiante": "string", "fuentes": ["chunk_id"]},
+    "decision_final": "responder | abstener_nivel1 | abstener_nivel2",
+    "tokens_entrada": "int",
+    "tokens_salida": "int",
+    "latencia_ms": "int",
+    "costo_usd": "float",
+    "modelo_id_devuelto": "identificador de modelo informado por la API"
+  }
+}

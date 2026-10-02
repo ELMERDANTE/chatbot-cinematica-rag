@@ -1,0 +1,3 @@
+id,familia,subtema,tipo,pregunta,respuesta_referencia,unidades_relevantes,respondible,conjunto
+EJ-001,F-MRUV-07,MRUV,numerica,"Un móvil parte del reposo con aceleración constante de 2 m/s². ¿Qué distancia recorre en 5 s?",25 m,MRUV-F03,si,ejemplo
+EJ-002,F-OUT-01,fuera_de_dominio,fuera_de_dominio,"¿Qué establece la segunda ley de Newton?",abstención esperada,,no,ejemplo
