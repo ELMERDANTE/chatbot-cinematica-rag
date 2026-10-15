@@ -9,7 +9,7 @@
 | **Curso** | Proyecto de Investigación II |
 | **Docente** | Glen Dario Rodriguez Rafael |
 | **Tipo de tesis** | LLM + RAG (Retrieval-Augmented Generation) |
-| **Estado** | Fase de diseño: proyecto de investigación (capítulos I–IV) y diseño reproducible del flujo experimental. Implementación pendiente. |
+| **Estado** | Datos preparados y analizados: corpus v5.1 (136 fichas), batería v4 (400 preguntas) y análisis exploratorio ([EDA](results/eda/EDA_resumen.md)). Implementación del prototipo pendiente. |
 
 ---
 
@@ -63,7 +63,22 @@ La evaluación tiene dos componentes:
 - El conjunto de evaluación final se ejecuta **una sola vez**, con la configuración y los umbrales congelados de antemano.
 - Los LLM no garantizan respuestas idénticas entre ejecuciones: se reproduce la **configuración** y la variabilidad se mide repitiendo un subconjunto fijo de preguntas.
 
-## 5. Estructura del repositorio
+## 5. Análisis exploratorio de datos (EDA)
+
+Antes de experimentar se verificó que el material con el que **se construye** el chatbot (corpus) y el material con el que **se le evalúa** (batería) sean adecuados. Informe: [`results/eda/EDA_resumen.md`](results/eda/EDA_resumen.md) · Notebook: [`notebooks/01_eda.ipynb`](notebooks/01_eda.ipynb).
+
+| Resultado | Valor |
+|---|---|
+| Fichas del corpus | 136 (55–146 palabras; una ficha = un fragmento del RAG) |
+| Preguntas de la batería | 400 = 5 subtemas × (18 teoría + 54 práctica + 8 no respondibles) |
+| Material real en la batería | 70 % (230 de la academia Ágora; toda la práctica es original) |
+| Partición desarrollo / validación / evaluación final | 200 / 80 / 120, exacta en cada subtema y estrato |
+| Banco de origen | 890 preguntas revisadas → 694 verificadas → 280 seleccionadas |
+| Filtración batería → corpus | Ninguna pregunta copiada |
+
+![Origen de las preguntas](results/eda/figuras/03_bateria_origen.png)
+
+## 6. Estructura del repositorio
 
 ```
 chatbot-cinematica-rag/
@@ -75,41 +90,46 @@ chatbot-cinematica-rag/
 │   ├── entregables/        ← entregables del curso (diseño del flujo experimental)
 │   └── figuras/            ← diagramas: arquitectura, flujo experimental, modelo conceptual
 ├── config/                 ← configuración versionada del sistema (config.yaml)
-├── data/                   ← datos (NO se publican; ver data/README.md)
-│   ├── corpus/             ← base de conocimiento validada (materiales del curso)
-│   └── bateria/            ← banco de 400 preguntas y su partición
+├── data/                   ← datos publicados (ver data/README.md)
+│   ├── corpus/             ← corpus v5.1: 136 fichas (síntesis propias) + manifiesto
+│   ├── bateria/            ← batería v4: versión pública, metadatos y registro de verificación
+│   └── eda/                ← inventario de fuentes revisadas
 ├── prompts/                ← plantillas versionadas del prompt pedagógico
 ├── src/                    ← código fuente del chatbot (en desarrollo)
 ├── evaluation/             ← protocolo, métricas y esquema de registro
 ├── experiments/            ← ejecuciones registradas (run_id)
-├── notebooks/              ← análisis exploratorios y estadísticos
-└── results/                ← resultados agregados y tablas para la tesis
+├── notebooks/              ← análisis (01_eda.ipynb: análisis exploratorio, ejecutado)
+└── results/                ← resultados agregados (eda/: informe, figuras y tablas)
 ```
 
 Cada carpeta contiene su propio `README.md` con su propósito y su contenido previsto.
 
-## 6. Política de datos y ética
+## 7. Política de datos y ética
 
 - **Este repositorio no contiene datos personales de estudiantes.** Los registros de interacción se anonimizan y se almacenan fuera del repositorio.
-- **Los materiales del curso** (separatas, ejemplos resueltos) no se publican por derechos de autor; solo se documenta su estructura.
-- **El banco de preguntas no se publica**, para evitar la contaminación de la evaluación (si las preguntas fueran públicas, podrían terminar en datos de entrenamiento de futuros modelos).
+- **El corpus se publica completo:** son síntesis propias que citan sus fuentes (Lumbreras y Giancoli) sin reproducir su texto.
+- **La batería se publica para que pueda verificarse:** las preguntas de la academia Ágora y las generadas, con su texto completo; las tomadas de libros con derechos de autor, con su referencia exacta, su clave y su solución, pero sin el enunciado. Cada pregunta tiene su fuente y su estado de verificación, y cada modificación tiene su motivo registrado.
+- **Versión congelada:** como la batería es pública, los resultados se reportan sobre la versión congelada e identificada por su hash (ver `data/bateria/README.md`).
+- **Escaneos:** los escaneos de libros no se publican.
 - Las claves de API se gestionan con variables de entorno (`.env`), nunca en el código.
 - El tratamiento de datos se ajusta a la Ley N.° 29733, Ley de Protección de Datos Personales (Perú).
 
-## 7. Hoja de ruta
+## 8. Hoja de ruta
 
 - [x] Proyecto de investigación (capítulos I–IV)
 - [x] Diseño reproducible del flujo experimental
 - [x] Estructura del repositorio
 - [ ] Diagnóstico inicial (prueba por subtemas y encuesta) — ciclo 2026-II
-- [ ] Construcción y validación de la base de conocimiento (corpus_v1)
-- [ ] Construcción del banco de 400 preguntas y su partición
+- [x] Construcción de la base de conocimiento (corpus v5.1, 136 fichas) — validación por expertos pendiente
+- [x] Construcción del banco de 400 preguntas y su partición (batería v4)
+- [x] Análisis exploratorio de datos (EDA)
+- [ ] Corpus v6: fichas nuevas y ejemplos resueltos de la academia
 - [ ] Implementación del prototipo (RAG + LLM + WhatsApp)
 - [ ] Evaluación técnica (desarrollo → validación → congelamiento → evaluación final)
 - [ ] Validación de instrumentos (pre-test, post-test, encuestas)
 - [ ] Intervención con estudiantes — ciclo 2027-I
 - [ ] Análisis de resultados e informe final
 
-## 8. Cómo citar
+## 9. Cómo citar
 
 > Rojas Zuta, E. D. (2026). *Desarrollo y evaluación de un chatbot educativo basado en IA generativa y RAG para reforzar el aprendizaje de cinemática preuniversitaria en una academia de Chachapoyas* [Proyecto de tesis de maestría]. Universidad Nacional de Ingeniería.

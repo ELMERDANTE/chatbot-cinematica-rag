@@ -1,6 +1,15 @@
 # src/
 
-Código fuente del chatbot (**en desarrollo**). Módulos previstos, en el orden del pipeline:
+Código fuente del chatbot (**en desarrollo**).
+
+**Scripts disponibles**
+
+| Archivo | Función |
+|---|---|
+| `eda_utils.py` | Carga de datos públicos, estilo de gráficos y utilidades del EDA (`notebooks/01_eda.ipynb`). |
+| `preparar_datos_publicos.py` | Genera los archivos públicos de `data/` a partir de los archivos de trabajo privados: corpus completo, batería sin textos protegidos, metadatos, registro de verificación e inventario. |
+
+ Módulos previstos, en el orden del pipeline:
 
 | Módulo | Función |
 |---|---|
