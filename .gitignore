@@ -2,12 +2,14 @@
 .env
 *.key
 
-# --- Datos (no se publican: derechos de autor, privacidad y contaminación de la evaluación) ---
+# --- Datos ---
+# Se publican: el corpus procesado (síntesis propias), la versión pública de la batería
+# (sin enunciados de libros con derechos de autor), sus metadatos y el registro de verificación.
+# No se publican: escaneos de libros, la batería completa y cualquier dato de estudiantes.
 data/corpus/raw/
-data/corpus/processed/
-data/bateria/*.csv
-data/bateria/*.jsonl
-!data/bateria/ejemplo_esquema.csv
+data/bateria/privado/
+data/bateria/*_completa.jsonl
+data/estudiantes/
 
 # --- Ejecuciones y registros ---
 experiments/runs/

@@ -1,0 +1,1095 @@
+{
+ "version": "v5.1",
+ "n_fichas": 136,
+ "sha256_archivo": "235bb0ef9ad37dc9685c8298ce8ee907ff3381d0e059b854b652f29481cc3550",
+ "fichas": [
+  {
+   "id": "CIN-MRU-T001",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Cinemática y movimiento mecánico",
+   "sha256": "db120d26d4d09476"
+  },
+  {
+   "id": "CIN-MRU-T002",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Sistema de referencia y posición",
+   "sha256": "9b7df2a612714c26"
+  },
+  {
+   "id": "CIN-MRU-T003",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Móvil, trayectoria y recorrido",
+   "sha256": "c39bf88cc917c865"
+  },
+  {
+   "id": "CIN-MRU-T004",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Desplazamiento y distancia",
+   "sha256": "c7c512a073b4d766"
+  },
+  {
+   "id": "CIN-MRU-T005",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Rapidez y velocidad",
+   "sha256": "2e0b136c7a5a175e"
+  },
+  {
+   "id": "CIN-MRU-T006",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Rapidez media y velocidad media",
+   "sha256": "6b5db89cf721e50e"
+  },
+  {
+   "id": "CIN-MRU-T007",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Velocidad instantánea; velocidad constante y variable",
+   "sha256": "68883a3c943ed6d8"
+  },
+  {
+   "id": "CIN-MRU-T008",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Movimiento rectilíneo uniforme (MRU) y sus características",
+   "sha256": "5476cdf28917f7b0"
+  },
+  {
+   "id": "CIN-MRU-T009",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Ecuación del MRU",
+   "sha256": "d406c463efef0ddd"
+  },
+  {
+   "id": "CIN-MRU-T010",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Conversión de unidades de rapidez",
+   "sha256": "9b342aeeac52cf63"
+  },
+  {
+   "id": "CIN-MRU-T011",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Tiempo de encuentro",
+   "sha256": "b0072d42161e291a"
+  },
+  {
+   "id": "CIN-MRU-T012",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Tiempo de alcance",
+   "sha256": "5803cf17c6ace3f9"
+  },
+  {
+   "id": "CIN-MRU-T013",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Velocidad relativa en una recta",
+   "sha256": "ac045bb4cd745700"
+  },
+  {
+   "id": "CIN-MRU-T014",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Cuerpos con longitud: trenes, puentes y túneles",
+   "sha256": "e32f7290648c0dd0"
+  },
+  {
+   "id": "CIN-MRU-T015",
+   "subtema": "MRU",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Gráfica posición–tiempo en el MRU",
+   "sha256": "13827a029ca0855d"
+  },
+  {
+   "id": "CIN-MRU-P001",
+   "subtema": "MRU",
+   "tipo": "procedimiento",
+   "nivel": "básico",
+   "titulo": "Cómo resolver un problema de MRU",
+   "sha256": "67f8f40456d5c944"
+  },
+  {
+   "id": "CIN-MRU-P002",
+   "subtema": "MRU",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Problemas de encuentro",
+   "sha256": "d25ed3227b366abb"
+  },
+  {
+   "id": "CIN-MRU-P003",
+   "subtema": "MRU",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Problemas de alcance",
+   "sha256": "09310b62ad76ed1a"
+  },
+  {
+   "id": "CIN-MRU-P004",
+   "subtema": "MRU",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Problemas con trenes, puentes, túneles y vehículos largos",
+   "sha256": "c953c75cc499b279"
+  },
+  {
+   "id": "CIN-MRU-P005",
+   "subtema": "MRU",
+   "tipo": "procedimiento",
+   "nivel": "básico",
+   "titulo": "Recorrido y distancia en trayectorias por tramos",
+   "sha256": "d757a988943074a7"
+  },
+  {
+   "id": "CIN-MRU-P006",
+   "subtema": "MRU",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Problemas de eco y sonido",
+   "sha256": "d9e05e607c408b68"
+  },
+  {
+   "id": "CIN-MRU-P007",
+   "subtema": "MRU",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Mismo recorrido con rapideces distintas",
+   "sha256": "f1b3cd775bfd3889"
+  },
+  {
+   "id": "CIN-MRU-P008",
+   "subtema": "MRU",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Moverse sobre algo que también se mueve: corriente, escalera mecánica",
+   "sha256": "4c234acc2e4abe5b"
+  },
+  {
+   "id": "CIN-MRU-E001",
+   "subtema": "MRU",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Encuentro de dos ciclistas",
+   "sha256": "768eb9a6ae3f0677"
+  },
+  {
+   "id": "CIN-MRU-E002",
+   "subtema": "MRU",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Patrullero que alcanza a un auto",
+   "sha256": "f39121eec1e75fc9"
+  },
+  {
+   "id": "CIN-MRU-E003",
+   "subtema": "MRU",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Tren que atraviesa un túnel",
+   "sha256": "7263c37f98c167e7"
+  },
+  {
+   "id": "CIN-MRU-E004",
+   "subtema": "MRU",
+   "tipo": "ejemplo",
+   "nivel": "básico",
+   "titulo": "Eco frente a una montaña",
+   "sha256": "0cd6218c0579df29"
+  },
+  {
+   "id": "CIN-MRU-E005",
+   "subtema": "MRU",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Llegar antes yendo más rápido",
+   "sha256": "eaa77d0df78f6482"
+  },
+  {
+   "id": "CIN-MRU-E006",
+   "subtema": "MRU",
+   "tipo": "ejemplo",
+   "nivel": "básico",
+   "titulo": "Ida y vuelta: recorrido y distancia",
+   "sha256": "5c6a5ac179fe489d"
+  },
+  {
+   "id": "CIN-MRU-E007",
+   "subtema": "MRU",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Rapidez media con tiempos desiguales",
+   "sha256": "a52722a827d63ca4"
+  },
+  {
+   "id": "CIN-MRUV-T001",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Aceleración",
+   "sha256": "ac92acaddadb7a83"
+  },
+  {
+   "id": "CIN-MRUV-T002",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Cambio de velocidad cuando cambia la dirección",
+   "sha256": "28e8ad5d30512d0d"
+  },
+  {
+   "id": "CIN-MRUV-T003",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Movimiento acelerado y desacelerado",
+   "sha256": "536a928465725c6b"
+  },
+  {
+   "id": "CIN-MRUV-T004",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Velocidad nula con aceleración no nula",
+   "sha256": "fc76e02aea31f9f4"
+  },
+  {
+   "id": "CIN-MRUV-T005",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Movimiento rectilíneo uniformemente variado (MRUV) y sus características",
+   "sha256": "228fba0c06663436"
+  },
+  {
+   "id": "CIN-MRUV-T006",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Ecuaciones del MRUV",
+   "sha256": "182add0e06584a85"
+  },
+  {
+   "id": "CIN-MRUV-T007",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Rapidez media en el MRUV",
+   "sha256": "ef64c40c0af048a9"
+  },
+  {
+   "id": "CIN-MRUV-T008",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Propiedades del MRUV desde el reposo: rapidez y primer segundo",
+   "sha256": "7e1088665426750e"
+  },
+  {
+   "id": "CIN-MRUV-T009",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Números de Galileo",
+   "sha256": "171a2d0cc6d9c982"
+  },
+  {
+   "id": "CIN-MRUV-T010",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Últimos segundos antes de detenerse",
+   "sha256": "e95fde680e651e25"
+  },
+  {
+   "id": "CIN-MRUV-T011",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Distancias en segundos consecutivos",
+   "sha256": "8a966dc8b2c114b8"
+  },
+  {
+   "id": "CIN-MRUV-T012",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "avanzado",
+   "titulo": "Distancia recorrida en el enésimo segundo",
+   "sha256": "00bd1fa8cfdfd146"
+  },
+  {
+   "id": "CIN-MRUV-T013",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Tiempo de reacción y distancia de frenado",
+   "sha256": "7c73c1e8d90af97a"
+  },
+  {
+   "id": "CIN-MRUV-T014",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Gráfica velocidad–tiempo",
+   "sha256": "b928a03fe603f39a"
+  },
+  {
+   "id": "CIN-MRUV-T015",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Gráficas posición–tiempo y aceleración–tiempo en el MRUV",
+   "sha256": "a1ad5d124bf7b130"
+  },
+  {
+   "id": "CIN-MRUV-T016",
+   "subtema": "MRUV",
+   "tipo": "teoria",
+   "nivel": "avanzado",
+   "titulo": "Ecuaciones de segundo grado en el tiempo",
+   "sha256": "8c445157c9dcc17c"
+  },
+  {
+   "id": "CIN-MRUV-P001",
+   "subtema": "MRUV",
+   "tipo": "procedimiento",
+   "nivel": "básico",
+   "titulo": "Cómo elegir la ecuación del MRUV",
+   "sha256": "a880dd5e7b9ad94e"
+  },
+  {
+   "id": "CIN-MRUV-P002",
+   "subtema": "MRUV",
+   "tipo": "procedimiento",
+   "nivel": "básico",
+   "titulo": "Cómo resolver un problema de MRUV",
+   "sha256": "734e95fb15cddb47"
+  },
+  {
+   "id": "CIN-MRUV-P003",
+   "subtema": "MRUV",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Problemas con las propiedades del MRUV",
+   "sha256": "f59246119a92a102"
+  },
+  {
+   "id": "CIN-MRUV-P004",
+   "subtema": "MRUV",
+   "tipo": "procedimiento",
+   "nivel": "avanzado",
+   "titulo": "Encuentro y alcance cuando hay MRUV",
+   "sha256": "b74d86ba0b7c1d5f"
+  },
+  {
+   "id": "CIN-MRUV-P005",
+   "subtema": "MRUV",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Aceleración cuando el móvil invierte su sentido",
+   "sha256": "17db99166ce03c33"
+  },
+  {
+   "id": "CIN-MRUV-P006",
+   "subtema": "MRUV",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Movimientos por tramos",
+   "sha256": "d6995f484034e88d"
+  },
+  {
+   "id": "CIN-MRUV-P007",
+   "subtema": "MRUV",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Cómo leer una gráfica velocidad–tiempo",
+   "sha256": "dc77358566ad6b19"
+  },
+  {
+   "id": "CIN-MRUV-E001",
+   "subtema": "MRUV",
+   "tipo": "ejemplo",
+   "nivel": "básico",
+   "titulo": "Aceleración y distancia de un auto",
+   "sha256": "220df8eaff5ed0a2"
+  },
+  {
+   "id": "CIN-MRUV-E002",
+   "subtema": "MRUV",
+   "tipo": "ejemplo",
+   "nivel": "básico",
+   "titulo": "Frenado hasta detenerse",
+   "sha256": "cff96de0d24f22a9"
+  },
+  {
+   "id": "CIN-MRUV-E003",
+   "subtema": "MRUV",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Números de Galileo",
+   "sha256": "5f84a82510fbc4f3"
+  },
+  {
+   "id": "CIN-MRUV-E004",
+   "subtema": "MRUV",
+   "tipo": "ejemplo",
+   "nivel": "avanzado",
+   "titulo": "Distancia en el enésimo segundo",
+   "sha256": "89240cd1e5bbb7cd"
+  },
+  {
+   "id": "CIN-MRUV-E005",
+   "subtema": "MRUV",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Pelota que rebota en una pared",
+   "sha256": "6dc2d3baaba1b7ab"
+  },
+  {
+   "id": "CIN-MRUV-E006",
+   "subtema": "MRUV",
+   "tipo": "ejemplo",
+   "nivel": "avanzado",
+   "titulo": "Auto que alcanza a un camión",
+   "sha256": "77f7bc8b3fdbaa76"
+  },
+  {
+   "id": "CIN-MRUV-E007",
+   "subtema": "MRUV",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Reacción y frenado",
+   "sha256": "bd2bcbce7589f262"
+  },
+  {
+   "id": "CIN-MRUV-E008",
+   "subtema": "MRUV",
+   "tipo": "ejemplo",
+   "nivel": "avanzado",
+   "titulo": "Desplazamiento y recorrido en una gráfica v–t",
+   "sha256": "b6cd1c80f722fea2"
+  },
+  {
+   "id": "CIN-MVCL-T001",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Caída libre",
+   "sha256": "d32c37b65b384b92"
+  },
+  {
+   "id": "CIN-MVCL-T002",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Aceleración de la gravedad",
+   "sha256": "7d2300fd965554cc"
+  },
+  {
+   "id": "CIN-MVCL-T003",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Movimiento vertical de caída libre (MVCL)",
+   "sha256": "f61eeab03302da22"
+  },
+  {
+   "id": "CIN-MVCL-T004",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Soltar y lanzar",
+   "sha256": "8300b5abb1e968aa"
+  },
+  {
+   "id": "CIN-MVCL-T005",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Altura máxima: velocidad cero, aceleración g",
+   "sha256": "ee80928aa161bc7f"
+  },
+  {
+   "id": "CIN-MVCL-T006",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Simetría de la subida y la bajada",
+   "sha256": "9c7c7c42481c4fb9"
+  },
+  {
+   "id": "CIN-MVCL-T007",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Tiempo de subida y altura máxima",
+   "sha256": "27748afcaf85b306"
+  },
+  {
+   "id": "CIN-MVCL-T008",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Números de Galileo en la caída libre",
+   "sha256": "d923cf0e3ed4936b"
+  },
+  {
+   "id": "CIN-MVCL-T009",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Ecuaciones escalares del MVCL",
+   "sha256": "af4de8e79e8fa3f4"
+  },
+  {
+   "id": "CIN-MVCL-T010",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "avanzado",
+   "titulo": "Ecuaciones vectoriales del MVCL",
+   "sha256": "51191cd3d41a45e1"
+  },
+  {
+   "id": "CIN-MVCL-T011",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "avanzado",
+   "titulo": "Dos instantes para una misma altura",
+   "sha256": "a5c6e56b2ff93a7f"
+  },
+  {
+   "id": "CIN-MVCL-T012",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "avanzado",
+   "titulo": "Dos cuerpos en caída libre al mismo tiempo",
+   "sha256": "bdf56d1f064b0acf"
+  },
+  {
+   "id": "CIN-MVCL-T013",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Cuerpo soltado desde un móvil en movimiento",
+   "sha256": "84a21fe127d1a461"
+  },
+  {
+   "id": "CIN-MVCL-T014",
+   "subtema": "MVCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Caída libre con otra gravedad",
+   "sha256": "579f365d1ee1f1fa"
+  },
+  {
+   "id": "CIN-MVCL-P001",
+   "subtema": "MVCL",
+   "tipo": "procedimiento",
+   "nivel": "básico",
+   "titulo": "Cómo resolver un problema de MVCL",
+   "sha256": "840f35cebeb9ca13"
+  },
+  {
+   "id": "CIN-MVCL-P002",
+   "subtema": "MVCL",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Cuerpos que suben y luego bajan",
+   "sha256": "303e9de5ec2849aa"
+  },
+  {
+   "id": "CIN-MVCL-P003",
+   "subtema": "MVCL",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Problemas con los números de Galileo en caída libre",
+   "sha256": "b524119e5306bb04"
+  },
+  {
+   "id": "CIN-MVCL-P004",
+   "subtema": "MVCL",
+   "tipo": "procedimiento",
+   "nivel": "avanzado",
+   "titulo": "Encuentro de dos cuerpos en la misma vertical",
+   "sha256": "bb93491395ec7a9b"
+  },
+  {
+   "id": "CIN-MVCL-E001",
+   "subtema": "MVCL",
+   "tipo": "ejemplo",
+   "nivel": "básico",
+   "titulo": "Objeto soltado desde una altura",
+   "sha256": "ddf76e09e028bad3"
+  },
+  {
+   "id": "CIN-MVCL-E002",
+   "subtema": "MVCL",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Objeto lanzado hacia abajo",
+   "sha256": "d397409510ad162a"
+  },
+  {
+   "id": "CIN-MVCL-E003",
+   "subtema": "MVCL",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Lanzamiento vertical y dos instantes",
+   "sha256": "baeb50e8b2af918a"
+  },
+  {
+   "id": "CIN-MVCL-E004",
+   "subtema": "MVCL",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Último segundo de una caída",
+   "sha256": "b293bd392300c46e"
+  },
+  {
+   "id": "CIN-MVCL-E005",
+   "subtema": "MVCL",
+   "tipo": "ejemplo",
+   "nivel": "avanzado",
+   "titulo": "Lanzamiento hacia arriba desde un edificio",
+   "sha256": "be7c92edaa2f36e1"
+  },
+  {
+   "id": "CIN-MVCL-E006",
+   "subtema": "MVCL",
+   "tipo": "ejemplo",
+   "nivel": "avanzado",
+   "titulo": "Encuentro de dos pelotas en la misma vertical",
+   "sha256": "dd9653b1295d57e8"
+  },
+  {
+   "id": "CIN-MVCL-E007",
+   "subtema": "MVCL",
+   "tipo": "ejemplo",
+   "nivel": "avanzado",
+   "titulo": "Velocidad, recorrido y distancia al subir y bajar",
+   "sha256": "67a99a587c34bad6"
+  },
+  {
+   "id": "CIN-MPCL-T001",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Movimiento parabólico de caída libre (MPCL)",
+   "sha256": "f9d5df48816e20ec"
+  },
+  {
+   "id": "CIN-MPCL-T002",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "El MPCL como unión de dos movimientos",
+   "sha256": "af9a2a50ec6b6d8b"
+  },
+  {
+   "id": "CIN-MPCL-T003",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Velocidad en el MPCL y sus componentes",
+   "sha256": "e4f5c5c50167d041"
+  },
+  {
+   "id": "CIN-MPCL-T004",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Descomposición de la velocidad de lanzamiento",
+   "sha256": "d6ffa4d693796711"
+  },
+  {
+   "id": "CIN-MPCL-T005",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Lanzamiento horizontal",
+   "sha256": "cf06be6f4966adda"
+  },
+  {
+   "id": "CIN-MPCL-T006",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Lanzamiento oblicuo: subida, bajada y altura máxima",
+   "sha256": "02957235ba797bd2"
+  },
+  {
+   "id": "CIN-MPCL-T007",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Rapidez mínima en la altura máxima",
+   "sha256": "02c91e7314f07e27"
+  },
+  {
+   "id": "CIN-MPCL-T008",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Ecuaciones generales del MPCL al mismo nivel",
+   "sha256": "1cf43180029c779e"
+  },
+  {
+   "id": "CIN-MPCL-T009",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Alcance máximo y ángulos complementarios",
+   "sha256": "c2bc47dc3e107403"
+  },
+  {
+   "id": "CIN-MPCL-T010",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "avanzado",
+   "titulo": "Relación entre altura máxima y alcance",
+   "sha256": "4338de67b030e378"
+  },
+  {
+   "id": "CIN-MPCL-T011",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Distancias horizontales proporcionales al tiempo",
+   "sha256": "2a2e26f3490d87cd"
+  },
+  {
+   "id": "CIN-MPCL-T012",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "avanzado",
+   "titulo": "Ecuaciones vectoriales del MPCL",
+   "sha256": "317a6b09c5de0dad"
+  },
+  {
+   "id": "CIN-MPCL-T013",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "avanzado",
+   "titulo": "El MPCL como MRU en la dirección de lanzamiento más caída libre",
+   "sha256": "2a92109d266d5a47"
+  },
+  {
+   "id": "CIN-MPCL-T014",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "avanzado",
+   "titulo": "Ecuación de la trayectoria",
+   "sha256": "a854904dc9882ae9"
+  },
+  {
+   "id": "CIN-MPCL-T015",
+   "subtema": "MPCL",
+   "tipo": "teoria",
+   "nivel": "avanzado",
+   "titulo": "MPCL sobre un plano inclinado liso",
+   "sha256": "f2f6226352172828"
+  },
+  {
+   "id": "CIN-MPCL-P001",
+   "subtema": "MPCL",
+   "tipo": "procedimiento",
+   "nivel": "básico",
+   "titulo": "Cómo resolver un problema de MPCL",
+   "sha256": "a40233f5903183be"
+  },
+  {
+   "id": "CIN-MPCL-P002",
+   "subtema": "MPCL",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Lanzamiento horizontal desde una altura",
+   "sha256": "eb967bb1f6001aee"
+  },
+  {
+   "id": "CIN-MPCL-P003",
+   "subtema": "MPCL",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Lanzamiento oblicuo que cae al mismo nivel",
+   "sha256": "939a1e86e7e5d442"
+  },
+  {
+   "id": "CIN-MPCL-P004",
+   "subtema": "MPCL",
+   "tipo": "procedimiento",
+   "nivel": "avanzado",
+   "titulo": "Lanzamientos con desnivel",
+   "sha256": "2b6e3b15a2f0bd59"
+  },
+  {
+   "id": "CIN-MPCL-P005",
+   "subtema": "MPCL",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Velocidad del proyectil en un punto",
+   "sha256": "848bbdd5fc0b4aa9"
+  },
+  {
+   "id": "CIN-MPCL-P006",
+   "subtema": "MPCL",
+   "tipo": "procedimiento",
+   "nivel": "avanzado",
+   "titulo": "Proyectil que impacta en un plano inclinado o en un blanco",
+   "sha256": "ed01b70b6b11e95d"
+  },
+  {
+   "id": "CIN-MPCL-E001",
+   "subtema": "MPCL",
+   "tipo": "ejemplo",
+   "nivel": "básico",
+   "titulo": "Lanzamiento horizontal desde una mesa",
+   "sha256": "8ab5d6130ca46f9d"
+  },
+  {
+   "id": "CIN-MPCL-E002",
+   "subtema": "MPCL",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Alcance y rapidez de impacto",
+   "sha256": "afcfa76481319e48"
+  },
+  {
+   "id": "CIN-MPCL-E003",
+   "subtema": "MPCL",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Lanzamiento oblicuo desde el piso",
+   "sha256": "b5c24968701b0c49"
+  },
+  {
+   "id": "CIN-MPCL-E004",
+   "subtema": "MPCL",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Alcance máximo",
+   "sha256": "fef97b0e66b19f3c"
+  },
+  {
+   "id": "CIN-MPCL-E005",
+   "subtema": "MPCL",
+   "tipo": "ejemplo",
+   "nivel": "avanzado",
+   "titulo": "Lanzamiento oblicuo desde una azotea",
+   "sha256": "962e763431e72e26"
+  },
+  {
+   "id": "CIN-MPCL-E006",
+   "subtema": "MPCL",
+   "tipo": "ejemplo",
+   "nivel": "avanzado",
+   "titulo": "Altura máxima a partir del alcance",
+   "sha256": "d4df9313c0ead769"
+  },
+  {
+   "id": "CIN-MPCL-E007",
+   "subtema": "MPCL",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Rapidez mínima de un proyectil",
+   "sha256": "68cbd9d6e2af2e84"
+  },
+  {
+   "id": "CIN-MCU-T001",
+   "subtema": "MCU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Movimiento circunferencial y sus elementos",
+   "sha256": "7162232fb5edd044"
+  },
+  {
+   "id": "CIN-MCU-T002",
+   "subtema": "MCU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Radián y relación entre arco y ángulo",
+   "sha256": "ef4dcfd001a5d234"
+  },
+  {
+   "id": "CIN-MCU-T003",
+   "subtema": "MCU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Movimiento circunferencial uniforme (MCU)",
+   "sha256": "f694a6b54f34abb0"
+  },
+  {
+   "id": "CIN-MCU-T004",
+   "subtema": "MCU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Rapidez angular",
+   "sha256": "5f2b81613726aa78"
+  },
+  {
+   "id": "CIN-MCU-T005",
+   "subtema": "MCU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Rapidez tangencial y su relación con la rapidez angular",
+   "sha256": "65bc4078b853781a"
+  },
+  {
+   "id": "CIN-MCU-T006",
+   "subtema": "MCU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Periodo y frecuencia",
+   "sha256": "bb10ad74ae1d1b96"
+  },
+  {
+   "id": "CIN-MCU-T007",
+   "subtema": "MCU",
+   "tipo": "teoria",
+   "nivel": "básico",
+   "titulo": "Revoluciones por minuto (RPM)",
+   "sha256": "662fee2c4df2436f"
+  },
+  {
+   "id": "CIN-MCU-T008",
+   "subtema": "MCU",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Aceleración centrípeta",
+   "sha256": "5e272cb0b2cb85fc"
+  },
+  {
+   "id": "CIN-MCU-T009",
+   "subtema": "MCU",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Puntos de un mismo disco o poleas concéntricas",
+   "sha256": "997fc0befa3a7e61"
+  },
+  {
+   "id": "CIN-MCU-T010",
+   "subtema": "MCU",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Transmisión de movimiento: faja y engranajes en contacto",
+   "sha256": "c69fcf1b96e4159c"
+  },
+  {
+   "id": "CIN-MCU-T011",
+   "subtema": "MCU",
+   "tipo": "teoria",
+   "nivel": "avanzado",
+   "titulo": "Encuentro y alcance de móviles en una circunferencia",
+   "sha256": "8b1803a097164522"
+  },
+  {
+   "id": "CIN-MCU-T012",
+   "subtema": "MCU",
+   "tipo": "teoria",
+   "nivel": "intermedio",
+   "titulo": "Comparación entre el MCU y el MRU",
+   "sha256": "fcdc4d5ace6791e4"
+  },
+  {
+   "id": "CIN-MCU-P001",
+   "subtema": "MCU",
+   "tipo": "procedimiento",
+   "nivel": "básico",
+   "titulo": "Cómo resolver un problema de MCU",
+   "sha256": "28feb07e2a74413b"
+  },
+  {
+   "id": "CIN-MCU-P002",
+   "subtema": "MCU",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Problemas de transmisión de movimiento",
+   "sha256": "85905d68751b6adc"
+  },
+  {
+   "id": "CIN-MCU-P003",
+   "subtema": "MCU",
+   "tipo": "procedimiento",
+   "nivel": "intermedio",
+   "titulo": "Aceleración centrípeta en un problema",
+   "sha256": "3fa0de71c69fffd2"
+  },
+  {
+   "id": "CIN-MCU-P004",
+   "subtema": "MCU",
+   "tipo": "procedimiento",
+   "nivel": "avanzado",
+   "titulo": "Encuentro y alcance en una circunferencia",
+   "sha256": "344f8815003026d6"
+  },
+  {
+   "id": "CIN-MCU-E001",
+   "subtema": "MCU",
+   "tipo": "ejemplo",
+   "nivel": "básico",
+   "titulo": "Ángulo barrido y arco recorrido",
+   "sha256": "a2d91209e013b72b"
+  },
+  {
+   "id": "CIN-MCU-E002",
+   "subtema": "MCU",
+   "tipo": "ejemplo",
+   "nivel": "básico",
+   "titulo": "Vueltas, frecuencia, periodo y rapidez",
+   "sha256": "ffb82f549b278a56"
+  },
+  {
+   "id": "CIN-MCU-E003",
+   "subtema": "MCU",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Frecuencia en RPM y aceleración centrípeta",
+   "sha256": "54d30ac9cf2e763f"
+  },
+  {
+   "id": "CIN-MCU-E004",
+   "subtema": "MCU",
+   "tipo": "ejemplo",
+   "nivel": "intermedio",
+   "titulo": "Poleas unidas por una faja",
+   "sha256": "14fb9856f799acaf"
+  },
+  {
+   "id": "CIN-MCU-E005",
+   "subtema": "MCU",
+   "tipo": "ejemplo",
+   "nivel": "avanzado",
+   "titulo": "Poleas solidarias y faja",
+   "sha256": "377dd278f6aebb21"
+  },
+  {
+   "id": "CIN-MCU-E006",
+   "subtema": "MCU",
+   "tipo": "ejemplo",
+   "nivel": "avanzado",
+   "titulo": "Encuentro de dos móviles en una circunferencia",
+   "sha256": "ab1863477bf2e2af"
+  }
+ ]
+}
