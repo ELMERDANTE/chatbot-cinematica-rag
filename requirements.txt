@@ -5,3 +5,5 @@ pandas        # manejo del banco de preguntas y de resultados
 scipy         # pruebas estadísticas (Wilcoxon, bootstrap)
 statsmodels   # ANCOVA y prueba de McNemar
 python-dotenv # variables de entorno
+matplotlib    # figuras del EDA
+jupyter       # notebooks (nbconvert para ejecutarlos)

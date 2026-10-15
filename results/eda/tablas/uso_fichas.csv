@@ -1,0 +1,137 @@
+id,titulo,usos
+CIN-MVCL-T009,Ecuaciones escalares del MVCL,27
+CIN-MRUV-T006,Ecuaciones del MRUV,25
+CIN-MCU-T006,Periodo y frecuencia,18
+CIN-MRU-T009,Ecuación del MRU,17
+CIN-MCU-T005,Rapidez tangencial y su relación con la rapidez angular,15
+CIN-MCU-T009,Puntos de un mismo disco o poleas concéntricas,14
+CIN-MPCL-T005,Lanzamiento horizontal,13
+CIN-MVCL-T010,Ecuaciones vectoriales del MVCL,12
+CIN-MPCL-P005,Velocidad del proyectil en un punto,12
+CIN-MRU-P006,Problemas de eco y sonido,11
+CIN-MCU-T004,Rapidez angular,11
+CIN-MVCL-T007,Tiempo de subida y altura máxima,11
+CIN-MRU-T014,"Cuerpos con longitud: trenes, puentes y túneles",11
+CIN-MRU-T013,Velocidad relativa en una recta,11
+CIN-MRU-T010,Conversión de unidades de rapidez,10
+CIN-MRU-T011,Tiempo de encuentro,10
+CIN-MPCL-T008,Ecuaciones generales del MPCL al mismo nivel,10
+CIN-MPCL-T012,Ecuaciones vectoriales del MPCL,10
+CIN-MVCL-T006,Simetría de la subida y la bajada,9
+CIN-MRUV-T001,Aceleración,9
+CIN-MCU-T008,Aceleración centrípeta,9
+CIN-MRUV-P004,Encuentro y alcance cuando hay MRUV,8
+CIN-MRU-T006,Rapidez media y velocidad media,7
+CIN-MRU-T004,Desplazamiento y distancia,7
+CIN-MVCL-T012,Dos cuerpos en caída libre al mismo tiempo,7
+CIN-MRUV-T007,Rapidez media en el MRUV,7
+CIN-MPCL-T010,Relación entre altura máxima y alcance,7
+CIN-MPCL-T009,Alcance máximo y ángulos complementarios,7
+CIN-MCU-T010,Transmisión de movimiento: faja y engranajes en contacto,7
+CIN-MPCL-T003,Velocidad en el MPCL y sus componentes,6
+CIN-MCU-T007,Revoluciones por minuto (RPM),6
+CIN-MPCL-P004,Lanzamientos con desnivel,6
+CIN-MCU-P004,Encuentro y alcance en una circunferencia,6
+CIN-MCU-T011,Encuentro y alcance de móviles en una circunferencia,6
+CIN-MRUV-T016,Ecuaciones de segundo grado en el tiempo,6
+CIN-MRU-P005,Recorrido y distancia en trayectorias por tramos,6
+CIN-MPCL-P006,Proyectil que impacta en un plano inclinado o en un blanco,5
+CIN-MRU-T005,Rapidez y velocidad,5
+CIN-MVCL-T008,Números de Galileo en la caída libre,5
+CIN-MRUV-P006,Movimientos por tramos,5
+CIN-MVCL-T013,Cuerpo soltado desde un móvil en movimiento,5
+CIN-MVCL-P002,Cuerpos que suben y luego bajan,5
+CIN-MPCL-T007,Rapidez mínima en la altura máxima,5
+CIN-MCU-T002,Radián y relación entre arco y ángulo,5
+CIN-MRUV-T003,Movimiento acelerado y desacelerado,5
+CIN-MPCL-T004,Descomposición de la velocidad de lanzamiento,5
+CIN-MRU-T008,Movimiento rectilíneo uniforme (MRU) y sus características,4
+CIN-MRUV-T012,Distancia recorrida en el enésimo segundo,4
+CIN-MRU-P004,"Problemas con trenes, puentes, túneles y vehículos largos",4
+CIN-MVCL-T002,Aceleración de la gravedad,4
+CIN-MRUV-T011,Distancias en segundos consecutivos,4
+CIN-MRU-T012,Tiempo de alcance,4
+CIN-MVCL-P004,Encuentro de dos cuerpos en la misma vertical,4
+CIN-MPCL-P002,Lanzamiento horizontal desde una altura,4
+CIN-MPCL-T006,"Lanzamiento oblicuo: subida, bajada y altura máxima",4
+CIN-MPCL-T002,El MPCL como unión de dos movimientos,4
+CIN-MVCL-T005,"Altura máxima: velocidad cero, aceleración g",3
+CIN-MRU-P007,Mismo recorrido con rapideces distintas,3
+CIN-MVCL-T004,Soltar y lanzar,3
+CIN-MVCL-T001,Caída libre,3
+CIN-MRUV-T008,Propiedades del MRUV desde el reposo: rapidez y primer segundo,3
+CIN-MRUV-T009,Números de Galileo,3
+CIN-MVCL-P003,Problemas con los números de Galileo en caída libre,3
+CIN-MVCL-T014,Caída libre con otra gravedad,3
+CIN-MRUV-T010,Últimos segundos antes de detenerse,3
+CIN-MRUV-T005,Movimiento rectilíneo uniformemente variado (MRUV) y sus características,3
+CIN-MRU-T007,Velocidad instantánea; velocidad constante y variable,2
+CIN-MRU-T001,Cinemática y movimiento mecánico,2
+CIN-MPCL-T011,Distancias horizontales proporcionales al tiempo,2
+CIN-MCU-P002,Problemas de transmisión de movimiento,2
+CIN-MRU-P002,Problemas de encuentro,2
+CIN-MRUV-T004,Velocidad nula con aceleración no nula,2
+CIN-MVCL-T011,Dos instantes para una misma altura,2
+CIN-MPCL-T001,Movimiento parabólico de caída libre (MPCL),2
+CIN-MPCL-T015,MPCL sobre un plano inclinado liso,2
+CIN-MRU-T003,"Móvil, trayectoria y recorrido",1
+CIN-MRU-T002,Sistema de referencia y posición,1
+CIN-MCU-T012,Comparación entre el MCU y el MRU,1
+CIN-MVCL-P001,Cómo resolver un problema de MVCL,1
+CIN-MPCL-T013,El MPCL como MRU en la dirección de lanzamiento más caída libre,1
+CIN-MRUV-T015,Gráficas posición–tiempo y aceleración–tiempo en el MRUV,1
+CIN-MVCL-T003,Movimiento vertical de caída libre (MVCL),1
+CIN-MRUV-P001,Cómo elegir la ecuación del MRUV,1
+CIN-MRUV-T014,Gráfica velocidad–tiempo,1
+CIN-MRU-T015,Gráfica posición–tiempo en el MRU,1
+CIN-MCU-T001,Movimiento circunferencial y sus elementos,1
+CIN-MCU-T003,Movimiento circunferencial uniforme (MCU),1
+CIN-MRUV-T002,Cambio de velocidad cuando cambia la dirección,1
+CIN-MRU-P008,"Moverse sobre algo que también se mueve: corriente, escalera mecánica",1
+CIN-MRU-P003,Problemas de alcance,0
+CIN-MRU-E001,Encuentro de dos ciclistas,0
+CIN-MRU-E007,Rapidez media con tiempos desiguales,0
+CIN-MRU-E003,Tren que atraviesa un túnel,0
+CIN-MRU-P001,Cómo resolver un problema de MRU,0
+CIN-MRU-E006,Ida y vuelta: recorrido y distancia,0
+CIN-MRUV-E003,Números de Galileo,0
+CIN-MRUV-P002,Cómo resolver un problema de MRUV,0
+CIN-MRUV-T013,Tiempo de reacción y distancia de frenado,0
+CIN-MRUV-P003,Problemas con las propiedades del MRUV,0
+CIN-MRUV-P005,Aceleración cuando el móvil invierte su sentido,0
+CIN-MRUV-P007,Cómo leer una gráfica velocidad–tiempo,0
+CIN-MRU-E002,Patrullero que alcanza a un auto,0
+CIN-MRU-E004,Eco frente a una montaña,0
+CIN-MRU-E005,Llegar antes yendo más rápido,0
+CIN-MRUV-E007,Reacción y frenado,0
+CIN-MRUV-E006,Auto que alcanza a un camión,0
+CIN-MRUV-E005,Pelota que rebota en una pared,0
+CIN-MRUV-E004,Distancia en el enésimo segundo,0
+CIN-MRUV-E008,Desplazamiento y recorrido en una gráfica v–t,0
+CIN-MRUV-E001,Aceleración y distancia de un auto,0
+CIN-MRUV-E002,Frenado hasta detenerse,0
+CIN-MPCL-P001,Cómo resolver un problema de MPCL,0
+CIN-MVCL-E002,Objeto lanzado hacia abajo,0
+CIN-MVCL-E001,Objeto soltado desde una altura,0
+CIN-MPCL-T014,Ecuación de la trayectoria,0
+CIN-MVCL-E003,Lanzamiento vertical y dos instantes,0
+CIN-MVCL-E005,Lanzamiento hacia arriba desde un edificio,0
+CIN-MVCL-E004,Último segundo de una caída,0
+CIN-MVCL-E007,"Velocidad, recorrido y distancia al subir y bajar",0
+CIN-MVCL-E006,Encuentro de dos pelotas en la misma vertical,0
+CIN-MPCL-P003,Lanzamiento oblicuo que cae al mismo nivel,0
+CIN-MPCL-E007,Rapidez mínima de un proyectil,0
+CIN-MPCL-E004,Alcance máximo,0
+CIN-MPCL-E006,Altura máxima a partir del alcance,0
+CIN-MPCL-E002,Alcance y rapidez de impacto,0
+CIN-MPCL-E003,Lanzamiento oblicuo desde el piso,0
+CIN-MPCL-E005,Lanzamiento oblicuo desde una azotea,0
+CIN-MPCL-E001,Lanzamiento horizontal desde una mesa,0
+CIN-MCU-P001,Cómo resolver un problema de MCU,0
+CIN-MCU-P003,Aceleración centrípeta en un problema,0
+CIN-MCU-E001,Ángulo barrido y arco recorrido,0
+CIN-MCU-E002,"Vueltas, frecuencia, periodo y rapidez",0
+CIN-MCU-E003,Frecuencia en RPM y aceleración centrípeta,0
+CIN-MCU-E004,Poleas unidas por una faja,0
+CIN-MCU-E005,Poleas solidarias y faja,0
+CIN-MCU-E006,Encuentro de dos móviles en una circunferencia,0
