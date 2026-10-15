@@ -1,0 +1,80 @@
+{
+ "bateria_usada": "completa (privada)",
+ "1_copias_en_corpus": {
+  "preguntas_revisadas": 400,
+  "jaccard_maximo": 0.451,
+  "preguntas_con_jaccard_mayor_0_5": 0,
+  "ok": true
+ },
+ "2_particion": {
+  "conteos": {
+   "desarrollo": 200,
+   "evaluacion_final": 120,
+   "validacion": 80
+  },
+  "desviacion_maxima": {
+   "estrato (teoría / práctica×nivel / no respondible)": 0.0,
+   "subtema": 0.0
+  },
+  "practica_subtema_nivel_desarrollo_siempre_9": true,
+  "ok": true
+ },
+ "3_familias": {
+  "familias": 395,
+  "familias_con_varias_preguntas": 5,
+  "familias_partidas": 0,
+  "ok": true
+ },
+ "4_validacion_cruzada": {
+  "folds": [
+   {
+    "fold": 1,
+    "n_prueba": 36,
+    "familias_compartidas": 0,
+    "proporcion_subtema_min": 0.194,
+    "proporcion_subtema_max": 0.222
+   },
+   {
+    "fold": 2,
+    "n_prueba": 36,
+    "familias_compartidas": 0,
+    "proporcion_subtema_min": 0.194,
+    "proporcion_subtema_max": 0.222
+   },
+   {
+    "fold": 3,
+    "n_prueba": 36,
+    "familias_compartidas": 0,
+    "proporcion_subtema_min": 0.194,
+    "proporcion_subtema_max": 0.222
+   },
+   {
+    "fold": 4,
+    "n_prueba": 36,
+    "familias_compartidas": 0,
+    "proporcion_subtema_min": 0.194,
+    "proporcion_subtema_max": 0.222
+   },
+   {
+    "fold": 5,
+    "n_prueba": 36,
+    "familias_compartidas": 0,
+    "proporcion_subtema_min": 0.194,
+    "proporcion_subtema_max": 0.222
+   }
+  ],
+  "ok": true
+ },
+ "5_evaluacion_final_intacta": {
+  "runs": 4,
+  "consultas_por_particion": {
+   "validacion": 288
+  },
+  "ok": true
+ },
+ "6_textos_protegidos_en_logs": {
+  "expuestos": 0,
+  "ok": true
+ },
+ "todo_ok": true
+}

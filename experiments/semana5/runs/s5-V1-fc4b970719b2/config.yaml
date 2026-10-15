@@ -1,0 +1,11 @@
+experimento: semana5-recuperacion
+variante: V1
+nombre: 'V1: + palabras vacías y raíces'
+cambio: 'Preprocesamiento: palabras vacías + stemming español (Snowball)'
+preprocesamiento: raices
+base: B0
+k_max: 10
+semilla: 20261015
+corpus: corpus_v5_1
+bateria: bateria_v4
+particion_evaluada: validacion

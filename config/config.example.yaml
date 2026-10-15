@@ -21,6 +21,13 @@ retrieval:
   top_k: 5                        # preliminar; calibrar entre {3, 5, 8}
   reranking: false                # calibrar (solo si Recall@k alto y MRR bajo)
   referencia_lexica: "bm25"
+  # Semana 5 (experiments/semana5): configuración elegida con desarrollo y validación
+  preprocesamiento: "raices"       # definido: palabras vacías + stemming Snowball (V1)
+  bm25: {k1: 1.5, b: 0.75}
+  hibrido_lsa: false               # V2 no mejoró; se reevaluará con embeddings preentrenados
+  enrutador_subtema:
+    activo: true                   # V3: +9,3 puntos de Recall@5 vs BM25 base (p = 0,03)
+    beta: 2.0                      # elegido por CV anidada en desarrollo
 
 seleccion_contexto:
   umbral_tau: null                # calibrar en validación (exactitud balanceada)

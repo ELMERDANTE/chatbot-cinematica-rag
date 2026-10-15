@@ -1,0 +1,10 @@
+experimento: semana5-recuperacion
+variante: B0
+nombre: 'Baseline: BM25 (normalización mínima)'
+cambio: —
+preprocesamiento: basico
+k_max: 10
+semilla: 20261015
+corpus: corpus_v5_1
+bateria: bateria_v4
+particion_evaluada: validacion

@@ -1,0 +1,105 @@
+{
+ "fecha": "2026-10-15T12:17:40-05:00",
+ "commit": "4dccfe1",
+ "bateria": "completa (privada)",
+ "n_desarrollo": 180,
+ "n_validacion": 72,
+ "hiperparametros": {
+  "por_fold": [
+   {
+    "fold": 1,
+    "alpha": 0.3,
+    "dims_lsa": 100
+   },
+   {
+    "fold": 1,
+    "beta_subtema": 2.0
+   },
+   {
+    "fold": 2,
+    "alpha": 0.5,
+    "dims_lsa": 50
+   },
+   {
+    "fold": 2,
+    "beta_subtema": 2.0
+   },
+   {
+    "fold": 3,
+    "alpha": 0.3,
+    "dims_lsa": 50
+   },
+   {
+    "fold": 3,
+    "beta_subtema": 2.0
+   },
+   {
+    "fold": 4,
+    "alpha": 0.3,
+    "dims_lsa": 50
+   },
+   {
+    "fold": 4,
+    "beta_subtema": 2.0
+   },
+   {
+    "fold": 5,
+    "alpha": 0.5,
+    "dims_lsa": 50
+   },
+   {
+    "fold": 5,
+    "beta_subtema": 4.0
+   }
+  ],
+  "final": {
+   "alpha": 0.5,
+   "dims_lsa": 50
+  },
+  "final_v3": 2.0
+ },
+ "dif_vs_v1": {
+  "V2": {
+   "diferencia": -0.027777777777777776,
+   "ic95": [
+    -0.0763888888888889,
+    0.006944444444444444
+   ],
+   "p_bootstrap": 0.2476
+  },
+  "V3": {
+   "diferencia": 0.025462962962962958,
+   "ic95": [
+    -0.020833333333333332,
+    0.06481481481481481
+   ],
+   "p_bootstrap": 0.258
+  }
+ },
+ "cv": {
+  "('recall@5', 'mean')": {
+   "B0": 0.434,
+   "V1": 0.465,
+   "V2": 0.459,
+   "V3": 0.531
+  },
+  "('recall@5', 'std')": {
+   "B0": 0.111,
+   "V1": 0.104,
+   "V2": 0.12,
+   "V3": 0.086
+  },
+  "('mrr@10', 'mean')": {
+   "B0": 0.379,
+   "V1": 0.369,
+   "V2": 0.364,
+   "V3": 0.395
+  },
+  "('mrr@10', 'std')": {
+   "B0": 0.084,
+   "V1": 0.087,
+   "V2": 0.079,
+   "V3": 0.084
+  }
+ }
+}

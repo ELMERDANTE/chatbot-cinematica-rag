@@ -7,6 +7,10 @@ Código fuente del chatbot (**en desarrollo**).
 | Archivo | Función |
 |---|---|
 | `eda_utils.py` | Carga de datos públicos, estilo de gráficos y utilidades del EDA (`notebooks/01_eda.ipynb`). |
+| `rag/preprocesamiento.py` | Normalización, palabras vacías y raíces (Snowball): el *feature set* textual del buscador. |
+| `rag/recuperacion.py` | Buscador BM25, híbrido BM25 + LSA y combinación con el enrutador; el índice se ajusta solo con el corpus. |
+| `rag/enrutador.py` | Clasificador de subtema (TF-IDF + regresión logística), entrenado solo con datos de entrenamiento. |
+| `rag/metricas.py` | Recall@k, Precision@k, MRR, nDCG, IC bootstrap y diferencias pareadas. |
 | `preparar_datos_publicos.py` | Genera los archivos públicos de `data/` a partir de los archivos de trabajo privados: corpus completo, batería sin textos protegidos, metadatos, registro de verificación e inventario. |
 
  Módulos previstos, en el orden del pipeline:

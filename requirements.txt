@@ -7,3 +7,6 @@ statsmodels   # ANCOVA y prueba de McNemar
 python-dotenv # variables de entorno
 matplotlib    # figuras del EDA
 jupyter       # notebooks (nbconvert para ejecutarlos)
+scikit-learn  # TF-IDF, LSA, enrutador de subtema y validación cruzada (semana 5)
+rank-bm25     # búsqueda léxica BM25
+nltk          # stemming Snowball en español (no requiere descargar datos)

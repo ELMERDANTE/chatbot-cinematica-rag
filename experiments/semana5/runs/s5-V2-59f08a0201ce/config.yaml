@@ -1,0 +1,14 @@
+experimento: semana5-recuperacion
+variante: V2
+nombre: 'V2: + búsqueda híbrida BM25 + LSA'
+cambio: 'Puntuación: combinación de BM25 con similitud semántica LSA'
+preprocesamiento: raices
+hibrido: true
+base: V1
+alpha: 0.5
+dims_lsa: 50
+k_max: 10
+semilla: 20261015
+corpus: corpus_v5_1
+bateria: bateria_v4
+particion_evaluada: validacion

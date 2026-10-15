@@ -1,0 +1,13 @@
+experimento: semana5-recuperacion
+variante: V3
+nombre: 'V3: V1 + enrutador de subtema'
+cambio: Prioriza las fichas del subtema que predice un clasificador entrenado solo
+  con datos de entrenamiento
+preprocesamiento: raices
+base: V1
+beta_subtema: 2.0
+k_max: 10
+semilla: 20261015
+corpus: corpus_v5_1
+bateria: bateria_v4
+particion_evaluada: validacion
