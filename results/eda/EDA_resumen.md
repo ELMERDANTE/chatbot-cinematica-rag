@@ -1,7 +1,7 @@
 # Análisis exploratorio de datos (EDA) — resumen
 
 **Proyecto:** chatbot educativo de cinemática basado en LLM + RAG (MIA-UNI)
-**Autor:** Elmer Dante Rojas Zuta · **Fecha:** 15-10-2026
+**Autor:** Elmer Dante Rojas Zuta
 **Notebook completo:** [`notebooks/01_eda.ipynb`](../../notebooks/01_eda.ipynb)
 
 ## 1. Qué datos se analizan y por qué
