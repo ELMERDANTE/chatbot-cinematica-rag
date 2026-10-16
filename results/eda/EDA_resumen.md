@@ -68,9 +68,10 @@ El EDA verifica que ambos sean adecuados **antes** del experimento. Un corpus co
 
 ![Embudo de fuentes](figuras/08_embudo_fuentes.png)
 
-- **Banco revisado:** 890 preguntas originales. Se descartaron 219: repetidas, defectuosas, fuera de alcance o de una academia que Ágora no usa.
+- **Banco revisado:** 890 preguntas originales = 694 verificadas + 196 no verificadas. Las cifras cuadran fila por fila en `data/eda/inventario_fuentes.csv`.
 - **Verificadas:** 694, todas con su clave confirmada por el docente, impresa en el libro o cotejada con el libro físico.
-- **Seleccionadas:** 280, estratificadas, con prioridad para el material de Ágora.
+- **No verificadas:** 196, que no pasaron a la verificación: repetidas, defectuosas, fuera de alcance o de una academia que Ágora no usa.
+- **Seleccionadas:** 280 de las verificadas, estratificadas, con prioridad para el material de Ágora. Las demás verificadas quedan como reserva, salvo algunas del material histórico que se retiraron después de verificarlas (repetidas, anuladas u omitidas), con su motivo registrado.
 - **Trazabilidad:** cada pregunta tiene su fuente exacta, y cada modificación (121 en total) tiene su motivo registrado en `data/bateria/registro_verificacion.csv`.
 
 ## 3. Decisiones derivadas del EDA

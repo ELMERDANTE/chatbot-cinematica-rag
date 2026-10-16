@@ -1,7 +1,7 @@
-fuente,origen,revisadas,descartadas,verificadas,en_bateria_v4,nota
-"Física esencial (Lumbreras), cap. 3–7: «Resolvemos juntos» y «Practiquemos»",libro,271,15,256,22,"Descartadas: 8 de MCUV (fuera de alcance), 4 con figura ambigua y 3 repetidas en el material de Ágora. Claves: 57 impresas legibles y 199 cotejadas con el libro físico."
-Academia Ágora: MATERIAL ÁGORA (Temas 1–4),Ágora,119,1,118,116,1 repetida dentro del mismo material. Claves confirmadas por el docente.
-"Academia Ágora: material histórico (FÍSICA Temas 1–5, Boletín, Enero 2024, Enero 2025)",Ágora,339,96,266,114,"Descartadas: repetidas con otros materiales, defectuosas, anuladas u omitidas por el docente. 220 transcritas al banco."
-"Material escolar de MCU (5.º de secundaria), adaptado al formato de Ágora",escolar,81,27,54,28,"Descartadas: repetidas, sin datos, eliminadas por el docente y ejercicios casi idénticos de práctica mecánica."
-Academia Aula20 (ciclo sabatino),externo,80,80,0,0,No se usa en Ágora; queda como reserva para pruebas de desarrollo.
-Generadas por el investigador con asistencia de IA,generada,170,0,0,120,"Teoría (87), no respondibles (40) y práctica de respaldo (43). Pendientes de revisión docente."
+fuente,origen,revisadas,verificadas,no_verificadas,en_bateria_v4,nota
+"Física esencial (Lumbreras), cap. 3–7: «Resolvemos juntos» y «Practiquemos»",libro,271,256,15,22,"No verificadas (15): 8 de MCUV (fuera de alcance), 4 con figura ambigua y 3 repetidas en el material de Ágora. Verificadas (256): 57 con la clave impresa legible y 199 cotejadas con el libro físico."
+Academia Ágora: MATERIAL ÁGORA (Temas 1–4),Ágora,119,118,1,116,No verificada (1): repetida dentro del mismo material. Claves de las 118 restantes confirmadas por el docente.
+"Academia Ágora: material histórico (FÍSICA Temas 1–5, Boletín, Enero 2024, Enero 2025)",Ágora,339,266,73,114,"Verificadas (266): claves confirmadas por el docente: FÍSICA Temas 1–4 (54), Boletín (50), Enero 2024 (67), Enero 2025 (77) y FÍSICA Tema 5 (18). No verificadas (73): repetidas con otros materiales o defectuosas. De las 266 verificadas, 220 se transcribieron al banco; las demás se retiraron por repetidas con otros materiales, anuladas u omitidas por el docente (ver data/bateria/registro_verificacion.csv)."
+"Material escolar de MCU (5.º de secundaria), adaptado al formato de Ágora",escolar,81,54,27,28,"No verificadas (27): repetidas, sin datos, eliminadas por el docente o ejercicios casi idénticos de práctica mecánica. Claves de las 54 verificadas confirmadas por el docente."
+Academia Aula20 (ciclo sabatino),externo,80,0,80,0,No se usa en Ágora; no se verificó. Queda como reserva para pruebas de desarrollo.
+Generadas por el investigador con asistencia de IA,generada,170,0,170,120,"Teoría (87), no respondibles (40) y práctica de respaldo (43). No tienen fuente que verificar: pendientes de revisión docente."
