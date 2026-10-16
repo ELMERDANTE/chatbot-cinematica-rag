@@ -1,4 +1,4 @@
-"""Experimentos A/B del componente de recuperación (semana 5).
+"""Feature engineering y experimentos A/B del componente de recuperación.
 
 Protocolo
 ---------
@@ -18,7 +18,7 @@ Variantes (un cambio por vez, en escalera):
 - V3  V1 + enrutador de subtema (clasificador entrenado con el corpus y las preguntas
       de entrenamiento). Se construye sobre V1 porque V2 no la superó en desarrollo.
 
-Uso: python experiments/semana5/ejecutar.py [--bateria RUTA]
+Uso: python experiments/feature_engineering/ejecutar.py [--bateria RUTA]
 """
 from __future__ import annotations
 
@@ -43,7 +43,7 @@ from rag.metricas import diferencia_pareada, ic_bootstrap, por_consulta  # noqa:
 from rag.enrutador import Enrutador  # noqa: E402
 from rag.recuperacion import Buscador  # noqa: E402
 
-SALIDA = RAIZ / "experiments/semana5"
+SALIDA = RAIZ / "experiments/feature_engineering"
 SEMILLA = 20261015
 K_MAX = 10
 VARIANTES = {
@@ -157,11 +157,11 @@ def main(ruta_bateria):
     # ---------- 2) holdout: validación ----------
     resultados, tiempos = {}, {}
     for v, cfg in VARIANTES.items():
-        conf = {"experimento": "semana5-recuperacion", "variante": v, **cfg, "k_max": K_MAX, "semilla": SEMILLA,
+        conf = {"experimento": "feature-engineering-recuperacion", "variante": v, **cfg, "k_max": K_MAX, "semilla": SEMILLA,
                 "corpus": "corpus_v5_1", "bateria": "bateria_v4", "particion_evaluada": "validacion"}
         texto_conf = yaml.safe_dump(conf, allow_unicode=True, sort_keys=False)
         chash = hashlib.sha256(texto_conf.encode()).hexdigest()[:12]
-        run_id = f"s5-{v}-{chash}"
+        run_id = f"fe-{v}-{chash}"
         carpeta = SALIDA / "runs" / run_id; carpeta.mkdir(parents=True, exist_ok=True)
         (carpeta / "config.yaml").write_text(texto_conf, encoding="utf-8")
         construcciones = [indice(cfg, corpus, enr_final if v == "V3" else None) for _ in range(5)]

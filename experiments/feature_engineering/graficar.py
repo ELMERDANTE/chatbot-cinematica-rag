@@ -1,7 +1,7 @@
-"""Gráfico clave de la semana 5: Recall@k vs k (holdout de validación).
+"""Gráfico clave del feature engineering: Recall@k vs k (holdout de validación).
 
 Lee `resultados/recall_vs_k.csv` (generado por `ejecutar.py`) y guarda
-`resultados/recall_vs_k.png`. Uso: python experiments/semana5/graficar.py
+`resultados/recall_vs_k.png`. Uso: python experiments/feature_engineering/graficar.py
 """
 from __future__ import annotations
 

@@ -1,5 +1,5 @@
 {
- "run_id": "s5-V1-fc4b970719b2",
+ "run_id": "fe-V1-36a958b6055c",
  "n": 72,
  "recall@1": 0.125,
  "recall@2": 0.2638888888888889,
@@ -15,7 +15,7 @@
  "mrr@10": 0.3143628747795415,
  "ndcg@5": 0.31541321309549225,
  "fallo@5": 0.4861111111111111,
- "indice_ms": 37.5,
- "consulta_ms_media": 1.012,
- "consulta_ms_p95": 2.28
+ "indice_ms": 14.6,
+ "consulta_ms_media": 0.483,
+ "consulta_ms_p95": 0.901
 }

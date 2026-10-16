@@ -1,4 +1,4 @@
-"""Verificación automática de cero fuga (leakage) y de la partición (semana 5).
+"""Verificación automática de cero fuga (leakage) y de la partición (feature engineering).
 
 Comprueba, sobre los datos y sobre los logs de los runs:
   1. Ninguna pregunta de la batería está copiada en el corpus (similitud de Jaccard).
@@ -8,7 +8,7 @@ Comprueba, sobre los datos y sobre los logs de los runs:
   5. Los logs de los runs solo contienen preguntas de validación (la evaluación final no se tocó).
   6. Los logs no exponen enunciados de libros protegidos.
 
-Uso: python experiments/semana5/verificar_fugas.py   → resultados/verificacion_fugas.json
+Uso: python experiments/feature_engineering/verificar_fugas.py   → resultados/verificacion_fugas.json
 """
 from __future__ import annotations
 

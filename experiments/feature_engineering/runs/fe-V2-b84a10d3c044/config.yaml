@@ -1,4 +1,4 @@
-experimento: semana5-recuperacion
+experimento: feature-engineering-recuperacion
 variante: V2
 nombre: 'V2: + búsqueda híbrida BM25 + LSA'
 cambio: 'Puntuación: combinación de BM25 con similitud semántica LSA'

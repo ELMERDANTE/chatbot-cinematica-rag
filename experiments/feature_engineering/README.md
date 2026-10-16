@@ -1,7 +1,7 @@
-# Semana 5 — Experimentos A/B del componente de recuperación
+# Feature engineering y experimentos A/B del componente de recuperación
 
 **Proyecto:** chatbot educativo de cinemática basado en LLM + RAG (MIA-UNI)
-**Autor:** Elmer Dante Rojas Zuta · **Fecha:** 15-10-2026
+**Autor:** Elmer Dante Rojas Zuta
 **Datos:** corpus v5.1 (136 fichas) · batería v4 (400 preguntas; se usan las 360 respondibles)
 
 ## 1. Qué se compara y por qué
@@ -37,17 +37,17 @@ V3 se construye sobre V1, y no sobre V2, porque V2 no superó a V1 en la validac
 
 | Variante | **Recall@5** (IC 95 %) | Δ vs B0 (IC 95 %; p) | Recall@1 | Recall@10 | MRR@10 | nDCG@5 | Fallo@5 | Acierto de subtema@1 | Índice (ms) | Consulta (ms, media / p95) | Costo API |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| **B0** BM25 base | 0,377 (0,273–0,479) | — | 0,146 | 0,488 | 0,285 | 0,287 | 0,583 | 0,708 | 23 | 2,0 / 3,9 | 0 |
-| **V1** + raíces | 0,444 (0,340–0,549) | +0,067 (−0,014; +0,150; p = 0,10) | 0,125 | 0,553 | 0,314 | 0,315 | 0,486 | 0,694 | 38 | 1,0 / 2,3 | 0 |
-| **V2** + híbrido LSA | 0,417 (0,312–0,521) | +0,039 (−0,032; +0,111; p = 0,29) | 0,139 | 0,572 | 0,319 | 0,312 | 0,528 | 0,736 | 113 | 2,4 / 3,3 | 0 |
-| **V3** + enrutador | **0,470** (0,361–0,572) | **+0,093** (+0,009; +0,181; **p = 0,03**) | **0,188** | **0,644** | **0,376** | **0,358** | **0,458** | **0,931** | 20 \* | 2,3 / 3,9 | 0 |
+| **B0** BM25 base | 0,377 (0,273–0,479) | — | 0,146 | 0,488 | 0,285 | 0,287 | 0,583 | 0,708 | 23 | 0,9 / 1,6 | 0 |
+| **V1** + raíces | 0,444 (0,340–0,549) | +0,067 (−0,014; +0,150; p = 0,10) | 0,125 | 0,553 | 0,314 | 0,315 | 0,486 | 0,694 | 15 | 0,5 / 0,9 | 0 |
+| **V2** + híbrido LSA | 0,417 (0,312–0,521) | +0,039 (−0,032; +0,111; p = 0,29) | 0,139 | 0,572 | 0,319 | 0,312 | 0,528 | 0,736 | 52 | 2,1 / 5,9 | 0 |
+| **V3** + enrutador | **0,470** (0,361–0,572) | **+0,093** (+0,009; +0,181; **p = 0,03**) | **0,188** | **0,644** | **0,376** | **0,358** | **0,458** | **0,931** | 15 \* | 1,2 / 1,7 | 0 |
 
 - **Δ e IC:** son diferencias **pareadas** sobre las mismas 72 preguntas, con IC bootstrap de 5000 remuestreos.
 - **Comparación con su base:**
   - V2 vs V1: −0,028 (p = 0,25);
   - V3 vs V1: +0,025 (−0,021; +0,065; p = 0,26).
 - **\* Tiempo de índice de V3:** no incluye el entrenamiento del enrutador, que se hace una sola vez fuera del índice y toma unos 0,1 s.
-- **Costo:** ninguna variante usa API; el costo es solo de cómputo local, del orden de milisegundos por consulta.
+- **Costo:** ninguna variante usa API; el costo es solo de cómputo local, del orden de 1–2 milisegundos por consulta. Los tiempos varían algo entre ejecuciones (dependen de la carga de la máquina); las métricas de recuperación no cambian.
 - **Archivos:** tabla completa en [`resultados/tabla_principal.csv`](resultados/tabla_principal.csv); métricas por run en `runs/<run_id>/metricas.json`.
 
 ### Gráfico clave: Recall@k vs k
@@ -79,12 +79,12 @@ El orden de las variantes es el mismo en la validación cruzada y en el holdout.
 
 Por subtema y por nivel: [`resultados/recall5_por_subtema.csv`](resultados/recall5_por_subtema.csv) y [`resultados/recall5_por_nivel.csv`](resultados/recall5_por_nivel.csv). MRUV y MVCL son los subtemas más difíciles (Recall@5 entre 0,21 y 0,27).
 
-## 3. Conclusiones de la semana
+## 3. Conclusiones
 
 1. **Configuración elegida para continuar:** V3, es decir, BM25 + raíces + enrutador de subtema con β = 2,0.
    - Es la única variante con mejora significativa frente a la línea base (+9,3 puntos de Recall@5; p = 0,03).
    - Sube el acierto de subtema de 69–74 % a 93 %.
-   - No aumenta el tiempo de consulta.
+   - Mantiene el tiempo de consulta en torno a 1 ms.
 2. **Límite de la evidencia:** la mejora de V3 sobre V1 es consistente (+6,6 puntos en la validación cruzada y +2,5 en el holdout), pero en el holdout **no es significativa** (p = 0,26). Con 72 preguntas, el IC de una diferencia pareada mide entre ±4 y ±9 puntos, así que solo se detectan con seguridad mejoras grandes.
 3. **LSA no aporta (V2):** empeora ligeramente a V1. El LSA se ajusta solo con 136 fichas y no aprende relaciones semánticas útiles; se sustituirá por embeddings preentrenados.
 4. **El cuello de botella ya no es el subtema, sino la ficha dentro del subtema:** en 29 de las 33 preguntas en las que V3 falla, la primera ficha sí es del subtema correcto. Hay dos causas:
@@ -153,7 +153,7 @@ pregunta ──► normalizar ──► tokens ──► [V1+] quitar palabras v
 
 ## 7. Registro de experimentos (logs)
 
-Cada variante genera un run en `runs/s5-<variante>-<hash de configuración>/`:
+Cada variante genera un run en `runs/fe-<variante>-<hash de configuración>/`:
 
 | Archivo | Contenido |
 |---|---|
@@ -167,9 +167,9 @@ Resumen global con hiperparámetros por partición: [`resultados/resumen.json`](
 
 ```bash
 pip install -r requirements.txt
-python experiments/semana5/ejecutar.py        # CV, holdout, runs y tablas (unos minutos)
-python experiments/semana5/graficar.py        # resultados/recall_vs_k.png
-python experiments/semana5/verificar_fugas.py # resultados/verificacion_fugas.json (sale con error si algo falla)
+python experiments/feature_engineering/ejecutar.py        # CV, holdout, runs y tablas (unos minutos)
+python experiments/feature_engineering/graficar.py        # resultados/recall_vs_k.png
+python experiments/feature_engineering/verificar_fugas.py # resultados/verificacion_fugas.json (sale con error si algo falla)
 ```
 
 - **Con la batería completa:** si existe la copia privada (`data/bateria/privado/bateria_v4_completa.jsonl`, excluida del repositorio), se usan las 360 preguntas respondibles. Los resultados de esta carpeta se obtuvieron así.

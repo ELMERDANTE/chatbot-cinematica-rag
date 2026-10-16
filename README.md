@@ -78,21 +78,21 @@ Antes de experimentar se verificó que el material con el que **se construye** e
 
 ![Origen de las preguntas](results/eda/figuras/03_bateria_origen.png)
 
-## 6. Experimentos A/B de recuperación (semana 5)
+## 6. Feature engineering y experimentos A/B de recuperación
 
-Se comparó una línea base y 3 variantes del buscador, **un cambio por vez**, sin usar el LLM (costo de API = 0). Métrica principal: **Recall@5**. Informe completo: [`experiments/semana5/README.md`](experiments/semana5/README.md).
+Se comparó una línea base y 3 variantes del buscador, **un cambio por vez**, sin usar el LLM (costo de API = 0). Métrica principal: **Recall@5**. Informe completo: [`experiments/feature_engineering/README.md`](experiments/feature_engineering/README.md).
 
 | Variante (holdout de validación, 72 preguntas) | Recall@5 | Δ vs línea base (p) | MRR@10 | Acierto de subtema@1 | Consulta (ms) |
 |---|---|---|---|---|---|
-| Línea base: BM25 | 0,377 | — | 0,285 | 0,71 | 2,0 |
-| V1: + palabras vacías y raíces | 0,444 | +0,067 (0,10) | 0,314 | 0,69 | 1,0 |
-| V2: V1 + híbrido BM25 + LSA | 0,417 | +0,039 (0,29) | 0,319 | 0,74 | 2,4 |
-| **V3: V1 + enrutador de subtema** | **0,470** | **+0,093 (0,03)** | **0,376** | **0,93** | 2,3 |
+| Línea base: BM25 | 0,377 | — | 0,285 | 0,71 | 0,9 |
+| V1: + palabras vacías y raíces | 0,444 | +0,067 (0,10) | 0,314 | 0,69 | 0,5 |
+| V2: V1 + híbrido BM25 + LSA | 0,417 | +0,039 (0,29) | 0,319 | 0,74 | 2,1 |
+| **V3: V1 + enrutador de subtema** | **0,470** | **+0,093 (0,03)** | **0,376** | **0,93** | 1,2 |
 
-![Recall@k vs k](experiments/semana5/resultados/recall_vs_k.png)
+![Recall@k vs k](experiments/feature_engineering/resultados/recall_vs_k.png)
 
 - **Validación:** validación cruzada de 5 particiones en desarrollo (estratificada por subtema y agrupada por familia) más holdout de validación. La evaluación final sigue sellada.
-- **Cero leakage verificado:** [`verificar_fugas.py`](experiments/semana5/verificar_fugas.py).
+- **Cero leakage verificado:** [`verificar_fugas.py`](experiments/feature_engineering/verificar_fugas.py).
 - **Hallazgo:** con V3 el subtema casi siempre es correcto. Lo que falta es la ficha precisa dentro del subtema, sobre todo en práctica, que es lo que abordará el corpus v6.
 
 ## 7. Estructura del repositorio
@@ -114,7 +114,7 @@ chatbot-cinematica-rag/
 ├── prompts/                ← plantillas versionadas del prompt pedagógico
 ├── src/                    ← código fuente (rag/: recuperación, enrutador y métricas)
 ├── evaluation/             ← protocolo, métricas y esquema de registro
-├── experiments/            ← ejecuciones registradas (semana5/: experimentos A/B de recuperación)
+├── experiments/            ← ejecuciones registradas (feature_engineering/: experimentos A/B de recuperación)
 ├── notebooks/              ← análisis (01_eda.ipynb: análisis exploratorio, ejecutado)
 └── results/                ← resultados agregados (eda/: informe, figuras y tablas)
 ```
@@ -140,7 +140,7 @@ Cada carpeta contiene su propio `README.md` con su propósito y su contenido pre
 - [x] Construcción de la base de conocimiento (corpus v5.1, 136 fichas) — validación por expertos pendiente
 - [x] Construcción del banco de 400 preguntas y su partición (batería v4)
 - [x] Análisis exploratorio de datos (EDA)
-- [x] Experimentos A/B de recuperación (semana 5)
+- [x] Feature engineering y experimentos A/B de recuperación
 - [ ] Experimento de generación: LLM solo vs LLM + RAG
 - [ ] Corpus v6: fichas nuevas y ejemplos resueltos de la academia
 - [ ] Implementación del prototipo (RAG + LLM + WhatsApp)

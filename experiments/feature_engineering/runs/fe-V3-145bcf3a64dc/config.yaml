@@ -1,4 +1,4 @@
-experimento: semana5-recuperacion
+experimento: feature-engineering-recuperacion
 variante: V3
 nombre: 'V3: V1 + enrutador de subtema'
 cambio: Prioriza las fichas del subtema que predice un clasificador entrenado solo

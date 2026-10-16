@@ -1,4 +1,4 @@
-experimento: semana5-recuperacion
+experimento: feature-engineering-recuperacion
 variante: V1
 nombre: 'V1: + palabras vacías y raíces'
 cambio: 'Preprocesamiento: palabras vacías + stemming español (Snowball)'

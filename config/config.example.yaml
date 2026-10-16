@@ -21,7 +21,7 @@ retrieval:
   top_k: 5                        # preliminar; calibrar entre {3, 5, 8}
   reranking: false                # calibrar (solo si Recall@k alto y MRR bajo)
   referencia_lexica: "bm25"
-  # Semana 5 (experiments/semana5): configuración elegida con desarrollo y validación
+  # Feature engineering (experiments/feature_engineering): configuración elegida con desarrollo y validación
   preprocesamiento: "raices"       # definido: palabras vacías + stemming Snowball (V1)
   bm25: {k1: 1.5, b: 0.75}
   hibrido_lsa: false               # V2 no mejoró; se reevaluará con embeddings preentrenados
