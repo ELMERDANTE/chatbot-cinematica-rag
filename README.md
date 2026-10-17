@@ -84,8 +84,8 @@ Se comparó una línea base y 3 variantes del buscador, **un cambio por vez**, s
 
 | Variante (holdout de validación, 72 preguntas) | Recall@5 | Δ vs línea base (p) | MRR@10 | Acierto de subtema@1 | Consulta (ms) |
 |---|---|---|---|---|---|
-| Línea base: BM25 | 0,377 | — | 0,285 | 0,71 | 0,9 |
-| V1: + palabras vacías y raíces | 0,444 | +0,067 (0,10) | 0,314 | 0,69 | 0,5 |
+| Línea base: BM25 | 0,377 | — | 0,285 | 0,71 | 0,8 |
+| V1: + palabras vacías y raíces | 0,444 | +0,067 (0,10) | 0,314 | 0,69 | 0,4 |
 | V2: V1 + híbrido BM25 + LSA | 0,417 | +0,039 (0,29) | 0,319 | 0,74 | 2,1 |
 | **V3: V1 + enrutador de subtema** | **0,470** | **+0,093 (0,03)** | **0,376** | **0,93** | 1,2 |
 

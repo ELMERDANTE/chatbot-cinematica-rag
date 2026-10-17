@@ -15,7 +15,7 @@
  "mrr@10": 0.2848324514991182,
  "ndcg@5": 0.2866211736619308,
  "fallo@5": 0.5833333333333334,
- "indice_ms": 23.2,
- "consulta_ms_media": 0.898,
- "consulta_ms_p95": 1.606
+ "indice_ms": 14.2,
+ "consulta_ms_media": 0.785,
+ "consulta_ms_p95": 1.776
 }
