@@ -37,11 +37,13 @@ El proceso completo de selección está en `data/eda/inventario_fuentes.csv` y e
 
 **Las preguntas de libros con derechos de autor** se pueden verificar con la referencia exacta (capítulo, sección y número). Las páginas escaneadas están disponibles para el jurado a solicitud del investigador.
 
-**Versión congelada (15-10-2026)**
+**Versión congelada (15-10-2026; revisión de redacción 16-10-2026)**
 
 | Archivo | SHA-256 |
 |---|---|
-| Batería completa (privada) | `8b78283babda0854f0fe7e8ced6ec24fc559ce9af1f4d0742e81a478dfafea5c` |
-| `bateria_v4_publica.jsonl` | `1cdb1a413103acdf12be27b7cfc5f3ce830d509432bd2b02b26be3bb45196684` |
+| Batería completa (privada) | `e4da76fb741cda723f9685e467992a28187be96102418ae692df09b728cf5870` |
+| `bateria_v4_publica.jsonl` | `78edfa6ebe3dda2d629083e6149f162cc4b4bef7ee9ba315a8eecc9a623f73f0` |
+
+*Revisión del 16-10-2026:* en las 120 preguntas generadas, el campo `fuente` pasó de nombrar la herramienta a decir «Generada con asistencia de IA, revisión docente pendiente». No cambió ningún enunciado, alternativa, clave, solución ni partición. Huellas anteriores: completa `8b78283b…`, pública `1cdb1a41…`.
 
 Cada ejecución de la evaluación registra este hash en su configuración.
