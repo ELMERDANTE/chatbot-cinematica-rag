@@ -3,6 +3,7 @@
 **Proyecto:** chatbot educativo de cinemática basado en LLM + RAG (MIA-UNI)
 **Autor:** Elmer Dante Rojas Zuta
 **Datos:** corpus v5.1 (136 fichas) · batería v4 (400 preguntas; se usan las 360 respondibles)
+**Notebook ejecutado (código corriendo paso a paso):** [`notebooks/02_feature_engineering.ipynb`](../../notebooks/02_feature_engineering.ipynb)
 
 ## 1. Qué se compara y por qué
 

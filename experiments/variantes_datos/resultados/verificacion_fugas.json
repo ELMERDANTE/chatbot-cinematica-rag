@@ -1,0 +1,40 @@
+{
+ "bateria_usada": "completa (privada)",
+ "1_expansion_D2": {
+  "problemas_distintos": 73,
+  "presentes_en_bateria": 0,
+  "jaccard_maximo": 0.448,
+  "ok": true
+ },
+ "2_particion_y_familias": {
+  "conteos": {
+   "desarrollo": 200,
+   "evaluacion_final": 120,
+   "validacion": 80
+  },
+  "familias_partidas": 0,
+  "ok": true
+ },
+ "3_validacion_cruzada": {
+  "familias_compartidas_por_particion": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "ok": true
+ },
+ "4_evaluacion_final_intacta": {
+  "runs": 3,
+  "consultas_por_particion": {
+   "validacion": 216
+  },
+  "ok": true
+ },
+ "5_textos_protegidos_en_logs": {
+  "expuestos": 0,
+  "ok": true
+ },
+ "todo_ok": true
+}

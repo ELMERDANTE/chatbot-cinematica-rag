@@ -1,0 +1,10 @@
+{
+ "reserva_agora": 106,
+ "excluidos_por_parecido": 32,
+ "aceptados": 74,
+ "umbral_jaccard": 0.45,
+ "max_por_ficha": 5,
+ "fichas_expandidas": 48,
+ "problemas_agregados": 104,
+ "jaccard_max_aceptado": 0.448
+}

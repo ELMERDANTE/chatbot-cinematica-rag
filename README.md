@@ -95,7 +95,21 @@ Se comparó una línea base y 3 variantes del buscador, **un cambio por vez**, s
 - **Cero leakage verificado:** [`verificar_fugas.py`](experiments/feature_engineering/verificar_fugas.py).
 - **Hallazgo:** con V3 el subtema casi siempre es correcto. Lo que falta es la ficha precisa dentro del subtema, sobre todo en práctica, que es lo que abordará el corpus v6.
 
-## 7. Estructura del repositorio
+## 7. Variantes de datos (informe de sprint)
+
+Con el buscador fijo (V3), se comparó el corpus original con dos variantes **de los datos**. Informe de sprint: [`docs/informe_sprint.md`](docs/informe_sprint.md) · detalle: [`experiments/variantes_datos/`](experiments/variantes_datos/README.md) · notebook: [`notebooks/03_variantes_datos.ipynb`](notebooks/03_variantes_datos.ipynb).
+
+| Variante (holdout de validación, 72 preguntas) | Recall@5 | Δ vs D0 (p) | Recall@5 en práctica |
+|---|---|---|---|
+| D0 · corpus v5.1 (baseline) | 0,470 | — | 0,32 |
+| D1 · sin campos estructurados | 0,491 | +0,021 (0,57) | 0,37 |
+| **D2 · + problemas reales de Ágora** | **0,611** | **+0,141 (0,002)** | **0,52** |
+
+![Recall@k vs k — variantes de datos](experiments/variantes_datos/resultados/recall_vs_k.png)
+
+- **Variante adoptada: D2.** Expande el texto indexado de cada ficha con problemas reales de la academia que no están en la batería (filtro de parecido: Jaccard ≤ 0,45). Es la mayor mejora hasta ahora, con costo de API cero y sin aumentar el contexto del LLM.
+
+## 8. Estructura del repositorio
 
 ```
 chatbot-cinematica-rag/
@@ -103,25 +117,25 @@ chatbot-cinematica-rag/
 ├── .gitignore              ← excluye datos sensibles, credenciales y resultados pesados
 ├── .env.example            ← plantilla de variables de entorno (sin claves reales)
 ├── requirements.txt        ← dependencias previstas (preliminar)
-├── docs/                   ← documentación de la tesis
+├── docs/                   ← documentación de la tesis (informe_sprint.md: informe de sprint)
 │   ├── entregables/        ← entregables del curso (diseño del flujo experimental)
 │   └── figuras/            ← diagramas: arquitectura, flujo experimental, modelo conceptual
 ├── config/                 ← configuración versionada del sistema (config.yaml)
 ├── data/                   ← datos publicados (ver data/README.md)
-│   ├── corpus/             ← corpus v5.1: 136 fichas (síntesis propias) + manifiesto
+│   ├── corpus/             ← corpus v5.1: 136 fichas (síntesis propias) + manifiesto; variantes/: expansión con problemas de Ágora
 │   ├── bateria/            ← batería v4: versión pública, metadatos y registro de verificación
 │   └── eda/                ← inventario de fuentes revisadas
 ├── prompts/                ← plantillas versionadas del prompt pedagógico
 ├── src/                    ← código fuente (rag/: recuperación, enrutador y métricas)
 ├── evaluation/             ← protocolo, métricas y esquema de registro
-├── experiments/            ← ejecuciones registradas (feature_engineering/: experimentos A/B de recuperación)
-├── notebooks/              ← análisis (01_eda.ipynb: análisis exploratorio, ejecutado)
+├── experiments/            ← ejecuciones registradas (feature_engineering/, variantes_datos/)
+├── notebooks/              ← análisis ejecutados: 01_eda, 02_feature_engineering, 03_variantes_datos
 └── results/                ← resultados agregados (eda/: informe, figuras y tablas)
 ```
 
 Cada carpeta contiene su propio `README.md` con su propósito y su contenido previsto.
 
-## 8. Política de datos y ética
+## 9. Política de datos y ética
 
 - **Este repositorio no contiene datos personales de estudiantes.** Los registros de interacción se anonimizan y se almacenan fuera del repositorio.
 - **El corpus se publica completo:** son síntesis propias que citan sus fuentes (Lumbreras y Giancoli) sin reproducir su texto.
@@ -131,7 +145,7 @@ Cada carpeta contiene su propio `README.md` con su propósito y su contenido pre
 - Las claves de API se gestionan con variables de entorno (`.env`), nunca en el código.
 - El tratamiento de datos se ajusta a la Ley N.° 29733, Ley de Protección de Datos Personales (Perú).
 
-## 9. Hoja de ruta
+## 10. Hoja de ruta
 
 - [x] Proyecto de investigación (capítulos I–IV)
 - [x] Diseño reproducible del flujo experimental
@@ -141,6 +155,7 @@ Cada carpeta contiene su propio `README.md` con su propósito y su contenido pre
 - [x] Construcción del banco de 400 preguntas y su partición (batería v4)
 - [x] Análisis exploratorio de datos (EDA)
 - [x] Feature engineering y experimentos A/B de recuperación
+- [x] Variantes de datos: corpus expandido con problemas de Ágora (informe de sprint)
 - [ ] Experimento de generación: LLM solo vs LLM + RAG
 - [ ] Corpus v6: fichas nuevas y ejemplos resueltos de la academia
 - [ ] Implementación del prototipo (RAG + LLM + WhatsApp)
@@ -149,6 +164,6 @@ Cada carpeta contiene su propio `README.md` con su propósito y su contenido pre
 - [ ] Intervención con estudiantes — ciclo 2027-I
 - [ ] Análisis de resultados e informe final
 
-## 10. Cómo citar
+## 11. Cómo citar
 
 > Rojas Zuta, E. D. (2026). *Desarrollo y evaluación de un chatbot educativo basado en IA generativa y RAG para reforzar el aprendizaje de cinemática preuniversitaria en una academia de Chachapoyas* [Proyecto de tesis de maestría]. Universidad Nacional de Ingeniería.

@@ -6,6 +6,8 @@ Base de conocimiento del sistema RAG — **versión v5.1 (136 fichas)**.
 |---|---|
 | `processed/corpus_v5_1.jsonl` | Una ficha por línea: `id`, `tipo` (teoría / procedimiento / ejemplo), `nivel`, `titulo`, contenido, `ecuaciones`, `condiciones`, `errores_frecuentes`, `fuente` (libro, capítulo y páginas) e `index_text` (texto que se indexa). |
 | `processed/corpus_v5_1_lectura.md` | La misma información en formato de lectura. |
+| `variantes/expansion_agora.jsonl` | Variante de datos D2: para 48 fichas, hasta 5 problemas reales de Ágora de la reserva (no están en la batería), con su fuente y su similitud máxima con la batería. Solo se usa para indexar. |
+| `variantes/expansion_agora_resumen.json` | Conteos de la expansión: 106 problemas en la reserva, 32 descartados por parecido, 74 aceptados. |
 | `manifest.json` | Inventario con el hash SHA-256 de cada ficha y del archivo completo. |
 
 | Subtema | Teoría | Procedimiento | Ejemplo | Total |

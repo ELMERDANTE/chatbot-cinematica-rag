@@ -1,0 +1,13 @@
+experimento: variantes-datos
+variante: D2
+nombre: 'V3: V1 + enrutador de subtema'
+cambio: Prioriza las fichas del subtema que predice un clasificador entrenado solo
+  con datos de entrenamiento
+preprocesamiento: raices
+base: V1
+beta_subtema: 0.5
+corpus: D2 · + Problemas reales de Ágora
+k_max: 10
+semilla: 20261015
+bateria: bateria_v4
+particion_evaluada: validacion

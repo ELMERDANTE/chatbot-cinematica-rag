@@ -11,6 +11,7 @@ Código fuente del chatbot (**en desarrollo**).
 | `rag/recuperacion.py` | Buscador BM25, híbrido BM25 + LSA y combinación con el enrutador; el índice se ajusta solo con el corpus. |
 | `rag/enrutador.py` | Clasificador de subtema (TF-IDF + regresión logística), entrenado solo con datos de entrenamiento. |
 | `rag/metricas.py` | Recall@k, Precision@k, MRR, nDCG, IC bootstrap y diferencias pareadas. |
+| `preparar_expansion.py` | Construye la variante de datos D2: agrega a cada ficha problemas reales de la reserva de Ágora (no están en la batería), con filtro de parecido Jaccard ≤ 0,45. |
 | `preparar_datos_publicos.py` | Genera los archivos públicos de `data/` a partir de los archivos de trabajo privados: corpus completo, batería sin textos protegidos, metadatos, registro de verificación e inventario. |
 
  Módulos previstos, en el orden del pipeline:

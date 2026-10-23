@@ -1,0 +1,72 @@
+{
+ "fecha": "2026-10-21T20:40:38-05:00",
+ "commit": "6e9960b",
+ "bateria": "completa (privada)",
+ "n_desarrollo": 180,
+ "n_validacion": 72,
+ "cv": {
+  "('recall@5', 'mean')": {
+   "D0": 0.531,
+   "D1": 0.523,
+   "D2": 0.62
+  },
+  "('recall@5', 'std')": {
+   "D0": 0.086,
+   "D1": 0.09,
+   "D2": 0.09
+  },
+  "('recall@10', 'mean')": {
+   "D0": 0.665,
+   "D1": 0.659,
+   "D2": 0.794
+  },
+  "('recall@10', 'std')": {
+   "D0": 0.087,
+   "D1": 0.081,
+   "D2": 0.055
+  },
+  "('mrr@10', 'mean')": {
+   "D0": 0.395,
+   "D1": 0.379,
+   "D2": 0.51
+  },
+  "('mrr@10', 'std')": {
+   "D0": 0.084,
+   "D1": 0.076,
+   "D2": 0.04
+  },
+  "('recall@5 (BM25 base)', 'mean')": {
+   "D0": 0.434,
+   "D1": 0.429,
+   "D2": 0.574
+  },
+  "('recall@5 (BM25 base)', 'std')": {
+   "D0": 0.111,
+   "D1": 0.097,
+   "D2": 0.078
+  }
+ },
+ "extra": {
+  "D0": {
+   "beta": 2.0,
+   "indice_ms": 12.1,
+   "consulta_ms": 1.18,
+   "palabras_indexadas_media": 101.8,
+   "recall5_bm25_base": 0.37731481481481477
+  },
+  "D1": {
+   "beta": 2.0,
+   "indice_ms": 10.3,
+   "consulta_ms": 1.04,
+   "palabras_indexadas_media": 86.5,
+   "recall5_bm25_base": 0.38425925925925924
+  },
+  "D2": {
+   "beta": 0.5,
+   "indice_ms": 16.6,
+   "consulta_ms": 1.19,
+   "palabras_indexadas_media": 131.2,
+   "recall5_bm25_base": 0.5532407407407408
+  }
+ }
+}
