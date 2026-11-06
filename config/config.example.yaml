@@ -26,8 +26,8 @@ retrieval:
   bm25: {k1: 1.5, b: 0.75}
   hibrido_lsa: false               # V2 no mejoró; se reevaluará con embeddings preentrenados
   enrutador_subtema:
-    activo: true                   # V3: +9,3 puntos de Recall@5 vs BM25 base (p = 0,03)
-    beta: 2.0                      # elegido por CV anidada en desarrollo
+    activo: false                  # retirado: +2,5 puntos vs V1, no significativo (p = 0,26); modelo extra
+  expansion_documentos: "data/corpus/variantes/expansion_agora.jsonl"   # D2: solo para buscar
 
 seleccion_contexto:
   umbral_tau: null                # calibrar en validación (exactitud balanceada)

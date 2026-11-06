@@ -1,0 +1,12 @@
+experimento: variantes-datos
+variante: D2
+nombre: 'V1: + palabras vacías y raíces'
+cambio: 'Preprocesamiento: palabras vacías + stemming español (Snowball)'
+preprocesamiento: raices
+base: B0
+enrutador: false
+corpus: D2 · + Problemas reales de Ágora
+k_max: 10
+semilla: 20261015
+bateria: bateria_v4
+particion_evaluada: validacion

@@ -36,8 +36,8 @@ def main() -> None:
     ax.text(5.08, 0.05, "k = 5 (contexto del RAG)", color=TINTA_2, fontsize=8.5)
     ax.set_xticks(range(1, 11)); ax.set_xlim(0.8, 10.2); ax.set_ylim(0, 0.85)
     ax.set_xlabel("k (fichas recuperadas)"); ax.set_ylabel("Recall@k")
-    ax.set_title("Recall@k vs k — variantes de datos (buscador fijo V3, 72 preguntas de validación)", pad=12)
-    fig.text(0.0, -0.04, "Solo cambia el corpus indexado; el buscador (raíces + enrutador de subtema) es el mismo en las tres variantes.",
+    ax.set_title("Recall@k vs k — variantes de datos (buscador fijo V1 sin enrutador, 72 preguntas de validación)", pad=12)
+    fig.text(0.0, -0.04, "Solo cambia el corpus indexado; el buscador (BM25 con palabras vacías + raíces, sin enrutador) es el mismo en las tres variantes.",
              color=TINTA_2, fontsize=8)
     fig.savefig(RES / "recall_vs_k.png"); print("Guardado:", RES / "recall_vs_k.png")
 

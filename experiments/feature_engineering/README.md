@@ -83,6 +83,7 @@ Por subtema y por nivel: [`resultados/recall5_por_subtema.csv`](resultados/recal
 ## 3. Conclusiones
 
 1. **Configuración elegida para continuar:** V3, es decir, BM25 + raíces + enrutador de subtema con β = 2,0.
+   - **Actualización posterior:** siguiendo la observación de la docente, en el sprint de variantes de datos se retiró el enrutador y se adoptó **V1**, porque su ventaja sobre V1 no es significativa (punto 2) y agrega un modelo entrenado aparte. Detalle: [`experiments/variantes_datos/README.md`](../variantes_datos/README.md).
    - Es la única variante con mejora significativa frente a la línea base (+9,3 puntos de Recall@5; p = 0,03).
    - Sube el acierto de subtema de 69–74 % a 93 %.
    - Mantiene el tiempo de consulta en torno a 1 ms.
@@ -181,4 +182,4 @@ python experiments/feature_engineering/verificar_fugas.py # resultados/verificac
 - **Tamaño:** 72 preguntas en el holdout dan IC amplios (±10 puntos). La evaluación final (108 respondibles) y el corpus v6 darán estimaciones más precisas.
 - **Embeddings:** el LSA es un sustituto offline. La comparación definitiva entre lo léxico y lo semántico se hará con un modelo multilingüe de embeddings.
 - **Anotación:** se revisará la anotación de fichas esperadas para incluir los procedimientos y ejemplos pertinentes, y se medirá también «Recall@5 amplio».
-- **Siguiente experimento:** comparar la generación del **LLM solo** con la del **LLM + RAG (V3)** en preguntas de desarrollo, midiendo corrección, fidelidad y costo por consulta.
+- **Siguiente experimento:** comparar la generación del **LLM solo** con la del **LLM + RAG** (buscador V1 + corpus D2, tras el sprint de variantes de datos) en preguntas de desarrollo, midiendo corrección, fidelidad y costo por consulta.

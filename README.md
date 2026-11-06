@@ -85,29 +85,30 @@ Se comparó una línea base y 3 variantes del buscador, **un cambio por vez**, s
 | Variante (holdout de validación, 72 preguntas) | Recall@5 | Δ vs línea base (p) | MRR@10 | Acierto de subtema@1 | Consulta (ms) |
 |---|---|---|---|---|---|
 | Línea base: BM25 | 0,377 | — | 0,285 | 0,71 | 0,8 |
-| V1: + palabras vacías y raíces | 0,444 | +0,067 (0,10) | 0,314 | 0,69 | 0,4 |
+| **V1: + palabras vacías y raíces (adoptada)** | **0,444** | +0,067 (0,10) | 0,314 | 0,69 | 0,4 |
 | V2: V1 + híbrido BM25 + LSA | 0,417 | +0,039 (0,29) | 0,319 | 0,74 | 2,1 |
-| **V3: V1 + enrutador de subtema** | **0,470** | **+0,093 (0,03)** | **0,376** | **0,93** | 1,2 |
+| V3: V1 + enrutador de subtema (retirado después) | 0,470 | +0,093 (0,03) | 0,376 | 0,93 | 1,2 |
 
 ![Recall@k vs k](experiments/feature_engineering/resultados/recall_vs_k.png)
 
 - **Validación:** validación cruzada de 5 particiones en desarrollo (estratificada por subtema y agrupada por familia) más holdout de validación. La evaluación final sigue sellada.
 - **Cero leakage verificado:** [`verificar_fugas.py`](experiments/feature_engineering/verificar_fugas.py).
-- **Hallazgo:** con V3 el subtema casi siempre es correcto. Lo que falta es la ficha precisa dentro del subtema, sobre todo en práctica, que es lo que abordará el corpus v6.
+- **Hallazgo:** lo que falta es la ficha precisa dentro del subtema, sobre todo en práctica. Eso se abordó cambiando los datos (sección 7).
+- **Actualización:** siguiendo la observación de la docente, en el sprint siguiente **se retiró el enrutador de subtema**. Frente a V1 su aporte no es significativo (+0,025, p = 0,26) y agrega un modelo entrenado aparte. El buscador adoptado es **V1**.
 
 ## 7. Variantes de datos (informe de sprint)
 
-Con el buscador fijo (V3), se comparó el corpus original con dos variantes **de los datos**. Informe de sprint: [`docs/informe_sprint.md`](docs/informe_sprint.md) · detalle: [`experiments/variantes_datos/`](experiments/variantes_datos/README.md) · notebook: [`notebooks/03_variantes_datos.ipynb`](notebooks/03_variantes_datos.ipynb).
+Con el buscador fijo (V1, sin enrutador), se comparó el corpus original con dos variantes **de los datos**. Informe de sprint: [`docs/informe_sprint.md`](docs/informe_sprint.md) · detalle: [`experiments/variantes_datos/`](experiments/variantes_datos/README.md) · notebook: [`notebooks/03_variantes_datos.ipynb`](notebooks/03_variantes_datos.ipynb).
 
 | Variante (holdout de validación, 72 preguntas) | Recall@5 | Δ vs D0 (p) | Recall@5 en práctica |
 |---|---|---|---|
-| D0 · corpus v5.1 (baseline) | 0,470 | — | 0,32 |
-| D1 · sin campos estructurados | 0,491 | +0,021 (0,57) | 0,37 |
-| **D2 · + problemas reales de Ágora** | **0,611** | **+0,141 (0,002)** | **0,52** |
+| D0 · corpus v5.1 (baseline) | 0,444 | — | 0,30 |
+| D1 · sin campos estructurados | 0,451 | +0,007 (0,92) | 0,33 |
+| **D2 · + problemas reales de Ágora** | **0,576** | **+0,132 (0,01)** | **0,47** |
 
 ![Recall@k vs k — variantes de datos](experiments/variantes_datos/resultados/recall_vs_k.png)
 
-- **Variante adoptada: D2.** Expande el texto indexado de cada ficha con problemas reales de la academia que no están en la batería (filtro de parecido: Jaccard ≤ 0,45). Es la mayor mejora hasta ahora, con costo de API cero y sin aumentar el contexto del LLM.
+- **Configuración adoptada: buscador V1 + corpus D2.** Expande el texto indexado de cada ficha con problemas reales de la academia que no están en la batería (filtro de parecido: Jaccard ≤ 0,45). Es la mayor mejora hasta ahora, con costo de API cero y sin aumentar el contexto del LLM.
 
 ## 8. Estructura del repositorio
 
