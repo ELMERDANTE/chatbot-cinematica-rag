@@ -1,0 +1,6 @@
+particion_externa,sel_preprocesamiento,sel_k1,sel_b,sel_peso_titulo,sel_ejemplos,recall5_vigente,recall5_seleccionada
+1,raices,4.0,0.0,2,sin_enunciado,0.4028,0.5139
+2,raices,4.0,0.0,2,sin_enunciado,0.5833,0.6944
+3,raices,2.5,0.0,2,sin_enunciado,0.3194,0.375
+4,raices,4.0,0.1,2,sin_enunciado,0.5185,0.5741
+5,raices,4.0,0.1,2,sin_enunciado,0.5,0.6111

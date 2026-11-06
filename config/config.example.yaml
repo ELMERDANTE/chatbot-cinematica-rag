@@ -23,11 +23,14 @@ retrieval:
   referencia_lexica: "bm25"
   # Feature engineering (experiments/feature_engineering): configuración elegida con desarrollo y validación
   preprocesamiento: "raices"       # definido: palabras vacías + stemming Snowball (V1)
-  bm25: {k1: 1.5, b: 0.75}
+  # Optimización de hiperparámetros (experiments/optimizacion_hiperparametros): CV de 5 particiones en desarrollo
+  bm25: {k1: 4.0, b: 0.1}          # antes 1,5 / 0,75; Recall@5 validación 0,444 → 0,581 junto con las dos líneas siguientes
+  peso_titulo: 2                   # el título se repite 2 veces en el texto indexado
+  ejemplos_en_indice: "sin_enunciado"   # provisional: las fichas de ejemplo se indexan sin su línea «Problema:»
   hibrido_lsa: false               # V2 no mejoró; se reevaluará con embeddings preentrenados
   enrutador_subtema:
     activo: false                  # retirado: +2,5 puntos vs V1, no significativo (p = 0,26); modelo extra
-  expansion_documentos: "data/corpus/variantes/expansion_agora.jsonl"   # D2: solo para buscar
+  expansion_documentos: null       # variantes de datos: ninguna supera a D0; la ampliación con la reserva se evaluará como corpus v6
 
 seleccion_contexto:
   umbral_tau: null                # calibrar en validación (exactitud balanceada)

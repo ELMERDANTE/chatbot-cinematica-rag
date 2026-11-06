@@ -127,7 +127,25 @@ Se analizó la configuración vigente (buscador V1 + corpus v5.1) desde dos lado
 
 ![Importancia de los campos](experiments/importancia_variables/resultados/importancia_campos.png)
 
-## 9. Estructura del repositorio
+## 9. Optimización de hiperparámetros
+
+Detalle: [`experiments/optimizacion_hiperparametros/`](experiments/optimizacion_hiperparametros/README.md) · notebook de todo el sprint: [`notebooks/05_optimizacion_hiperparametros.ipynb`](notebooks/05_optimizacion_hiperparametros.ipynb).
+
+**Búsqueda:** rejilla de 576 configuraciones (preprocesamiento, k1, b, peso del título y papel de las fichas de ejemplo en el índice), elegida con la CV de 5 particiones en desarrollo, con CV anidada y una sola comparación en validación.
+
+| Candidata (holdout de validación, 72 preguntas) | Recall@5 | Δ vs vigente (p) | Fallo@5 |
+|---|---|---|---|
+| Vigente (k1 1,5 · b 0,75) | 0,444 | — | 49 % |
+| Solo BM25 optimizado (k1 3,0 · b 0 · título ×3) | 0,477 | +0,032 (0,26) | 44 % |
+| **Optimizada (k1 4,0 · b 0,1 · título ×2 · ejemplos sin enunciado)** | **0,581** | **+0,137 (< 0,001)** | **33 %** |
+
+- **Configuración adoptada:** la optimizada. La CV anidada confirma la mejora sin optimismo (0,465 → 0,554, en 5 de 5 particiones).
+- **Origen de la ganancia:** casi toda viene de indexar las fichas de ejemplo sin su enunciado.
+- **Cautela:** la clave no marca esas fichas como esperadas, así que la decisión es provisional hasta el experimento de generación.
+
+![Recall@k vs k — optimización](experiments/optimizacion_hiperparametros/resultados/recall_vs_k.png)
+
+## 10. Estructura del repositorio
 
 ```
 chatbot-cinematica-rag/
@@ -146,14 +164,14 @@ chatbot-cinematica-rag/
 ├── prompts/                ← plantillas versionadas del prompt pedagógico
 ├── src/                    ← código fuente (rag/: recuperación, enrutador y métricas)
 ├── evaluation/             ← protocolo, métricas y esquema de registro
-├── experiments/            ← ejecuciones registradas (feature_engineering/, variantes_datos/, importancia_variables/)
-├── notebooks/              ← análisis ejecutados: 01_eda, 02_feature_engineering, 03_variantes_datos, 04_importancia_variables
+├── experiments/            ← ejecuciones registradas (feature_engineering/, variantes_datos/, importancia_variables/, optimizacion_hiperparametros/)
+├── notebooks/              ← análisis ejecutados: 01_eda, 02_feature_engineering, 03_variantes_datos, 04_importancia_variables, 05_optimizacion_hiperparametros
 └── results/                ← resultados agregados (eda/: informe, figuras y tablas)
 ```
 
 Cada carpeta contiene su propio `README.md` con su propósito y su contenido previsto.
 
-## 10. Política de datos y ética
+## 11. Política de datos y ética
 
 - **Este repositorio no contiene datos personales de estudiantes.** Los registros de interacción se anonimizan y se almacenan fuera del repositorio.
 - **El corpus se publica completo:** son síntesis propias que citan sus fuentes (Lumbreras y Giancoli) sin reproducir su texto.
@@ -163,7 +181,7 @@ Cada carpeta contiene su propio `README.md` con su propósito y su contenido pre
 - Las claves de API se gestionan con variables de entorno (`.env`), nunca en el código.
 - El tratamiento de datos se ajusta a la Ley N.° 29733, Ley de Protección de Datos Personales (Perú).
 
-## 11. Hoja de ruta
+## 12. Hoja de ruta
 
 - [x] Proyecto de investigación (capítulos I–IV)
 - [x] Diseño reproducible del flujo experimental
@@ -176,7 +194,7 @@ Cada carpeta contiene su propio `README.md` con su propósito y su contenido pre
 - [x] Variantes de datos con el mismo corpus (informe de sprint, versión corregida)
 - [x] Importancia de variables del buscador y matriz de consistencia
 - [ ] Experimento de generación: LLM solo vs LLM + RAG
-- [ ] Optimización de hiperparámetros del buscador
+- [x] Optimización de hiperparámetros del buscador
 - [ ] Corpus v6: fichas nuevas, ejemplos resueltos y problemas de la academia
 - [ ] Implementación del prototipo (RAG + LLM + WhatsApp)
 - [ ] Evaluación técnica (desarrollo → validación → congelamiento → evaluación final)
@@ -184,6 +202,6 @@ Cada carpeta contiene su propio `README.md` con su propósito y su contenido pre
 - [ ] Intervención con estudiantes — ciclo 2027-I
 - [ ] Análisis de resultados e informe final
 
-## 12. Cómo citar
+## 13. Cómo citar
 
 > Rojas Zuta, E. D. (2026). *Desarrollo y evaluación de un chatbot educativo basado en IA generativa y RAG para reforzar el aprendizaje de cinemática preuniversitaria en una academia de Chachapoyas* [Proyecto de tesis de maestría]. Universidad Nacional de Ingeniería.

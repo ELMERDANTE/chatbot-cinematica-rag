@@ -1,0 +1,27 @@
+{
+ "bateria_usada": "completa (privada)",
+ "1_cv_sin_familias_compartidas": {
+  "familias_compartidas": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "ok": true
+ },
+ "2_logs_solo_validacion": {
+  "consultas_por_particion": {
+   "validacion": 216
+  },
+  "ok": true
+ },
+ "3_evaluacion_final_intacta": {
+  "ok": true
+ },
+ "4_textos_protegidos_en_logs": {
+  "expuestos": 0,
+  "ok": true
+ },
+ "todo_ok": true
+}

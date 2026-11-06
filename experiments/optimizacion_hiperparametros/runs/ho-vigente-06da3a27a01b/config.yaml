@@ -1,0 +1,15 @@
+experimento: optimizacion-hiperparametros
+candidata: vigente
+preprocesamiento: raices
+k1: 1.5
+b: 0.75
+peso_titulo: 1
+ejemplos: completos
+enrutador: false
+corpus: v5.1
+k_contexto: 5
+k_max: 10
+semilla: 20261015
+bateria: bateria_v4
+particion_evaluada: validacion
+seleccion: CV de 5 particiones en desarrollo

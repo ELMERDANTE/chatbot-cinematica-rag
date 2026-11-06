@@ -1,0 +1,75 @@
+{
+ "fecha": "2026-11-06T11:56:51-05:00",
+ "commit": "8a9abe1",
+ "bateria": "completa (privada)",
+ "n_desarrollo": 180,
+ "n_validacion": 72,
+ "n_configuraciones": 576,
+ "espacio": {
+  "preprocesamiento": [
+   "basico",
+   "raices"
+  ],
+  "k1": [
+   0.5,
+   0.8,
+   1.2,
+   1.5,
+   2.0,
+   2.5,
+   3.0,
+   4.0
+  ],
+  "b": [
+   0.0,
+   0.1,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "peso_titulo": [
+   1,
+   2,
+   3
+  ],
+  "ejemplos": [
+   "completos",
+   "sin_enunciado"
+  ]
+ },
+ "vigente": {
+  "preprocesamiento": "raices",
+  "k1": 1.5,
+  "b": 0.75,
+  "peso_titulo": 1,
+  "ejemplos": "completos"
+ },
+ "optima": {
+  "preprocesamiento": "raices",
+  "k1": 4.0,
+  "b": 0.1,
+  "peso_titulo": 2,
+  "ejemplos": "sin_enunciado"
+ },
+ "solo_bm25": {
+  "preprocesamiento": "raices",
+  "k1": 3.0,
+  "b": 0.0,
+  "peso_titulo": 3,
+  "ejemplos": "completos"
+ },
+ "cv_anidada": {
+  "vigente": 0.4648,
+  "seleccionada": 0.5537,
+  "particiones_en_que_mejora": 5
+ },
+ "importancia": {
+  "ejemplos": 0.0686,
+  "k1": 0.0224,
+  "preprocesamiento": 0.0214,
+  "b": 0.0123,
+  "peso_titulo": 0.0072
+ },
+ "evaluacion_final_usada": false
+}
