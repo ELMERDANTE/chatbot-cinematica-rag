@@ -1,0 +1,9 @@
+campo,palabras_por_ficha,importancia_cv,particiones_en_que_ayuda,recall5_val_sin_campo,importancia_val,ic95_val,p_val,importancia_val_practica,importancia_val_teoria
+contenido,56.7,0.1574,5,0.2894,0.1551,[+0.083; +0.236],0.0,0.1481,0.1759
+titulo,6.5,0.0222,3,0.4375,0.0069,[-0.021; +0.042],0.956,0.0093,0.0
+condiciones,1.7,0.0139,3,0.4444,0.0,[+0.000; +0.000],1.0,0.0,0.0
+respuesta (ejemplos),3.0,-0.0,1,0.4444,0.0,[+0.000; +0.000],1.0,0.0,0.0
+relaciones,6.8,-0.0056,1,0.4583,-0.0139,[-0.056; +0.028],0.7884,-0.037,0.0556
+error_frecuente,6.8,-0.0056,2,0.4444,0.0,[-0.042; +0.042],1.0,0.0,0.0
+resolucion (ejemplos),10.5,-0.0056,0,0.4514,-0.0069,[-0.021; +0.000],0.734,-0.0093,0.0
+problema (ejemplos),9.9,-0.0611,0,0.5139,-0.0694,[-0.125; -0.028],0.0004,-0.0926,0.0

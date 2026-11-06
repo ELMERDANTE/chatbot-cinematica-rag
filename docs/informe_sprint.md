@@ -2,7 +2,7 @@
 
 **Proyecto:** *Desarrollo y evaluación de un chatbot educativo basado en IA generativa y RAG para reforzar el aprendizaje de cinemática preuniversitaria en una academia de Chachapoyas*
 **Autor:** Elmer Dante Rojas Zuta · Proyecto de Investigación II (MIA-UNI)
-**Rama:** `variantes-datos`
+**Versión corregida.** Atiende las observaciones de la docente: se retira el enrutador de subtema y D2 ya no agrega datos externos. La versión entregada originalmente está en la rama `variantes-datos`.
 
 ## 1. Contexto
 
@@ -14,7 +14,7 @@
 |---|---|---|
 | Corpus v5.1 | 136 fichas: teoría, procedimientos y ejemplos resueltos | Lo que el chatbot consulta |
 | Batería v4 | 400 preguntas (70 % material real de la academia Ágora y libros) con clave, solución y fichas esperadas | El examen. Partición 200 / 80 / 120 (desarrollo / validación / evaluación final) |
-| Reserva de Ágora | 106 problemas reales verificados que **no** están en la batería | Material para la variante de datos D2 |
+| Reserva de Ágora | 106 problemas reales verificados que **no** están en la batería | **No se usa en las variantes.** Es candidata para ampliar el corpus (v6), sección 6 |
 
 - **Métrica central:** **Recall@5**, la proporción de las fichas esperadas de cada pregunta que aparece entre las 5 que se entregarán al LLM.
 - **Métricas secundarias:** Recall@k, MRR@10, nDCG@5, Fallo@5, acierto de subtema, tiempo y costo.
@@ -55,67 +55,78 @@ En este sprint el buscador queda **fijo** (V1) y solo cambian **los datos**, com
 
 ## 3. Experimentos A/B: un cambio por variante, en los datos
 
+**Las tres variantes usan las mismas 136 fichas.** Solo cambia el texto de cada ficha que se indexa:
+
 | Variante | Qué cambia en los datos | Por qué |
 |---|---|---|
-| **D0** baseline | Nada: corpus v5.1 (título + contenido + ecuaciones + error frecuente) | Referencia |
-| **D1** | Se quitan los campos estructurados (ecuaciones, condiciones, error frecuente): solo título + contenido | ¿Esos campos ayudan a buscar o meten ruido? |
-| **D2** | Se agregan al texto indexado de cada ficha hasta 5 **problemas reales de la reserva de Ágora** que la usan (expansión de documentos) | Los problemas de práctica describen situaciones con el vocabulario de la academia («móvil», «tarda», «lanzado»), que el corpus casi no tenía |
+| **D0** baseline | Nada: corpus v5.1 (título + contenido + relaciones + condiciones + error frecuente) | Referencia |
+| **D1** | Se quitan los campos estructurados (relaciones, condiciones, error frecuente): solo título + contenido | ¿Esos campos ayudan a buscar o meten ruido? |
+| **D2** | A cada ficha de teoría o procedimiento se le agrega el **enunciado de los ejemplos resueltos del propio corpus** de su mismo subtema con los que se vincula | Dar a las fichas lenguaje de problema **sin agregar datos nuevos** |
 
-**Regla de D2:** la expansión solo se usa para buscar; al LLM se le entrega la ficha original. Los problemas que se parecen a cualquier pregunta de la batería (Jaccard > 0,45) se descartan, y fueron 32 de 106.
+**Reglas de D2:**
+- **Vínculo:** cada ejemplo se vincula con sus *n* fichas más parecidas de su subtema, usando BM25 solo entre textos del corpus.
+- **Elección de *n*:** *n* = 3, elegido con CV en desarrollo entre {1, 2, 3}.
+- **Anti-fuga:** se excluyen los ejemplos parecidos a cualquier pregunta de la batería (Jaccard > 0,45). Quedan 22 de 35.
+- **Uso:** el texto agregado solo sirve para buscar; al LLM se le entrega la ficha original.
 
 ## 4. Resultados comparables
 
 **Tabla (holdout de validación, 72 preguntas respondibles):**
 
-| Variante | **Recall@5** (IC 95 %) | Δ vs D0 (p) | Recall@5 práctica | Recall@5 teoría | Recall@10 | MRR@10 | Fallo@5 | Latencia por consulta | Costo API |
+| Variante | **Recall@5** (IC 95 %) | Δ vs D0 (IC 95 %; p) | Recall@5 práctica | Recall@5 teoría | Recall@1 | MRR@10 | Fallo@5 | Latencia por consulta | Costo API |
 |---|---|---|---|---|---|---|---|---|---|
-| D0 baseline | 0,444 (0,340–0,549) | — | 0,30 | 0,89 | 0,553 | 0,314 | 49 % | < 1 ms | 0 |
-| D1 sin campos | 0,451 (0,347–0,556) | +0,007 (p = 0,92) | 0,33 | 0,81 | 0,539 | 0,321 | 49 % | < 1 ms | 0 |
-| **D2 + problemas Ágora** | **0,576** (0,479–0,674) | **+0,132 (p = 0,01)** | **0,47** | 0,89 | **0,688** | **0,514** | **33 %** | < 1 ms | 0 |
+| D0 baseline | 0,444 (0,340–0,549) | — | 0,30 | 0,89 | 0,125 | 0,314 | 49 % | < 1 ms | 0 |
+| D1 sin campos | 0,451 (0,347–0,556) | +0,007 (−0,049; +0,062; p = 0,92) | 0,33 | 0,81 | 0,139 | 0,321 | 49 % | < 1 ms | 0 |
+| D2 + enunciados de ejemplos | 0,486 (0,375–0,597) | +0,042 (−0,021; +0,104; p = 0,21) | 0,35 | 0,89 | 0,208 | 0,390 | 47 % | < 1 ms | 0 |
 
 **Gráfico único: Recall@k vs k**
 
 ![Recall@k vs k](../experiments/variantes_datos/resultados/recall_vs_k.png)
 
-- **Mejor variante:** D2 está por encima en **todos** los valores de k, de 1 a 10.
-- **Dónde mejora más:** en práctica (+0,18, p = 0,01) y en los subtemas más débiles: MRUV de 0,21 a 0,57 y MVCL de 0,21 a 0,43. En MCU baja de 0,67 a 0,53, punto a revisar en el corpus v6.
-- **Validación cruzada en desarrollo:** D2 supera a D0 en 4 de las 5 particiones (Recall@5 de 0,465 → 0,534 en promedio).
-- **Con el buscador más simple** (BM25 sin raíces), D2 también mejora: 0,377 → 0,553. El efecto viene de los datos.
+- **Ninguna variante supera a D0 de forma significativa.**
+- **D2:** queda algo por encima en todos los k y mejora el ranking (Recall@1 de 0,125 a 0,208), pero la diferencia en Recall@5 no es significativa. En la validación cruzada supera a D0 en 3 de 5 particiones (0,465 → 0,488).
+- **D1:** empeora la teoría (0,89 → 0,81). Los campos estructurados ayudan.
+- **Sensibilidad al filtro anti-fuga:**
+  - **sin filtro**, D2 llegaría a 0,549 (+0,10; p = 0,008);
+  - esa «mejora» viene de trasladar a las fichas 13 ejemplos que se parecen a preguntas de la batería;
+  - con la regla aplicada desaparece, y con ≤ 0,35 es nula (−0,014; p = 0,72).
 
 **Prueba adicional: el enrutador retirado** ([`prueba_enrutador.csv`](../experiments/variantes_datos/resultados/prueba_enrutador.csv))
 
 | Corpus | Sin enrutador (V1) | Con enrutador (V3) | Δ (IC 95 %; p) | Particiones de CV que gana el enrutador |
 |---|---|---|---|---|
 | D0 | 0,444 | 0,470 | +0,025 (−0,021; +0,065; p = 0,26) | 4 de 5 |
-| D2 | 0,576 | 0,611 | +0,035 (−0,007; +0,090; p = 0,19) | 5 de 5 |
+| D2 | 0,486 | 0,532 | +0,046 (+0,005; +0,097; p = 0,03) | 5 de 5 |
 
-El enrutador aporta una mejora pequeña y consistente, pero **no significativa** en el holdout. Retirarlo deja un buscador más simple y conserva la mejora principal, que viene de los datos.
+- **Sobre el corpus adoptado (D0):** el enrutador no aporta de forma significativa.
+- **Sobre D2:** la diferencia sí es significativa, aunque en el límite. Se reporta con transparencia; la decisión de retirarlo se mantiene por simplicidad y generalidad.
 
 ## 5. Validación
 
 - **Split:** estratificado (subtema × componente × nivel) y **agrupado por familia**, con semilla fija (20261015) y partición congelada con su huella SHA-256.
-- **Validación cruzada:** `StratifiedGroupKFold(5)` en desarrollo. El buscador V1 no tiene hiperparámetros que ajustar con preguntas; en la prueba adicional del enrutador, su β se elige con CV anidada solo en entrenamiento.
+- **Validación cruzada:** `StratifiedGroupKFold(5)` en desarrollo. El único ajuste del sprint, el *n* de D2, se elige solo con esta CV.
 - **Holdout:** validación, una ejecución por variante. La **evaluación final no se ha usado**.
 - **Cero leakage, verificado por script** ([`verificar_fugas.py`](../experiments/variantes_datos/verificar_fugas.py) → `todo_ok = true`):
-  - ningún problema agregado en D2 está en la batería, y la similitud máxima es 0,448;
+  - los enunciados que agrega D2 son todos del corpus, con similitud máxima de 0,441 con la batería;
   - no hay familias partidas;
   - los logs solo contienen preguntas de validación.
-- **Sensibilidad:** con un filtro más estricto (Jaccard ≤ 0,35), D2 sigue mejorando de forma significativa (+0,111, p = 0,01).
 
 ## 6. Conclusión y decisión
 
-- **Se adopta D2: corpus v5.1 expandido con problemas reales de Ágora**, con el buscador V1 (BM25 + palabras vacías + raíces, **sin enrutador**).
-  - **Justificación técnica:** es la mayor mejora obtenida hasta ahora (+13 puntos de Recall@5, p = 0,01). Gana en 4 de 5 particiones de la validación cruzada y ataca justo la debilidad detectada en práctica.
-  - **Costo y viabilidad:** costo de API cero y latencia de alrededor de 1 ms. No aumenta el contexto del LLM, porque la expansión solo sirve para buscar. Usa material propio de la academia que ya estaba verificado.
-- **Se descarta D1:** no mejora de forma significativa y empeora la teoría. Los campos estructurados se mantienen.
-- **Se retira el enrutador de subtema:** su aporte no es significativo y agrega un modelo entrenado aparte.
-- **Lección del sprint:** mejorar **los datos** rindió más que mejorar el algoritmo: +13 puntos frente a +7 de las raíces (B0 → V1).
+- **Se mantiene D0** (corpus v5.1) con el buscador V1 (BM25 + palabras vacías + raíces, **sin enrutador**). Ninguna variante construida con los mismos datos lo supera de forma significativa.
+- **Se descarta D1:** no mejora y empeora la teoría.
+- **D2 no se adopta:** su mejora no es significativa con la regla anti-fuga. Muestra que el corpus actual no tiene suficientes ejemplos «limpios» para dar a las fichas el lenguaje de los problemas.
+- **Se retira el enrutador de subtema:** sobre D0 su aporte no es significativo, y agrega un modelo entrenado aparte.
+- **Lección del sprint:** con el mismo corpus no se logra mejorar la búsqueda en problemas de práctica. Para eso hacen falta **datos nuevos**.
+  - **Exploración, no comparable como variante:** agregar 73 problemas de la reserva de Ágora sube el Recall@5 a 0,576 (p = 0,01).
+  - **Por qué no es una variante:** mete información que D0 y D1 no tienen, y la reserva sale de la misma fuente que la batería.
+  - **Tratamiento:** se evaluará como **corpus v6**, construido y congelado antes de medirlo, con el examen final sellado y preguntas nuevas independientes.
 
 ## 7. Reproducibilidad
 
 ```bash
 pip install -r requirements.txt
-python src/preparar_expansion.py --privado <carpeta_privada>   # solo si se reconstruye la expansión (requiere la reserva privada)
+python src/preparar_ejemplos_d2.py --privado <carpeta_privada>  # solo si se recalcula el parecido de los ejemplos (requiere la batería privada)
 python experiments/variantes_datos/ejecutar.py                 # experimentos (≈ 30 s)
 python experiments/variantes_datos/graficar.py                 # gráfico
 python experiments/variantes_datos/verificar_fugas.py          # verificación de cero leakage
@@ -126,17 +137,17 @@ jupyter nbconvert --to notebook --execute notebooks/03_variantes_datos.ipynb
 |---|---|
 | Logs por consulta y configuración de cada variante | `experiments/variantes_datos/runs/dv-<variante>-<hash>/` (`config.yaml`, `log.jsonl`, `metricas.json`) |
 | Tablas y gráfico | `experiments/variantes_datos/resultados/` |
-| Datos de la variante D2 | `data/corpus/variantes/expansion_agora.jsonl`: fuente y similitud de cada problema |
-| Resultados desde un clon limpio | Con la batería pública (sin los enunciados de libros), Recall@5: D0 = 0,452 y D2 = 0,619. La conclusión es la misma |
+| Datos de la variante D2 | `data/corpus/variantes/ejemplos_jaccard.json`: similitud de cada ejemplo con la batería (solo números). Elección de *n*: `resultados/eleccion_n_D2.csv` |
+| Resultados desde un clon limpio | Con la batería pública (sin los enunciados de libros), Recall@5: D0 = 0,452, D1 = 0,444 y D2 = 0,452. La conclusión es la misma: ninguna variante supera a D0 |
 | Huellas de los datos | Corpus: `data/corpus/manifest.json` (SHA-256 por ficha). Batería: `data/bateria/README.md` (SHA-256 de la versión congelada) |
 
 ## 8. Riesgos y próximos pasos
 
-- **Riesgo de sesgo optimista:** los problemas de la academia se repiten por tipos, y parte de la mejora de D2 viene de esa semejanza. Con un filtro muy estricto (Jaccard ≤ 0,30) el efecto desaparece. Se confirmará **una sola vez** en la evaluación final, que sigue sellada.
-- **Riesgo de drift:** si la academia cambia su material o su forma de redactar los problemas, la expansión debe actualizarse.
+- **Riesgo de sesgo optimista:** los problemas de la academia y los ejemplos del corpus se repiten por tipos. Sin el filtro anti-fuga, las mejoras aparentes se inflan, como mostró la sensibilidad de D2. El filtro se fija **antes** de medir.
+- **Riesgo de drift:** si la academia cambia su material o su forma de redactar, el corpus debe actualizarse.
 - **Sesgo de la batería:** la teoría y las no respondibles son en su mayoría generadas y están pendientes de revisión docente.
-- **Raíces con el corpus expandido:** en la validación cruzada, con D2, BM25 sin raíces (0,574) supera a V1 (0,534), mientras que en el holdout V1 es mejor (0,576 frente a 0,553). Las raíces se mantienen por el resultado del avance anterior, pero se volverán a comparar con el corpus v6.
-- **Próximo sprint:**
-  1. Integrar D2 como **corpus v6**, agregando las fichas faltantes (sombras, vectores, cruce de un río).
-  2. Probar embeddings como alternativa simple al LSA.
+- **Subtemas débiles:** MRUV y caída libre siguen en Recall@5 ≈ 0,21–0,25.
+- **Próximos pasos:**
+  1. Construir el **corpus v6** con fichas faltantes (sombras, vectores, cruce de un río), ejemplos resueltos nuevos de MRUV, caída libre y MCU, y problemas de la reserva que pasen el filtro.
+  2. Probar búsqueda semántica (embeddings).
   3. Iniciar el experimento de generación: **LLM solo frente a LLM + RAG**.

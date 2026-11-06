@@ -16,8 +16,8 @@
  "ndcg@5": 0.32516489525418635,
  "fallo@5": 0.4861111111111111,
  "acierto_subtema@1": 0.6805555555555556,
- "indice_ms": 12.8,
- "consulta_ms": 0.5,
+ "indice_ms": 9.8,
+ "consulta_ms": 0.36,
  "palabras_indexadas_media": 86.5,
  "recall5_bm25_base": 0.38425925925925924
 }

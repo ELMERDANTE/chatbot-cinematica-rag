@@ -1,9 +1,10 @@
 {
  "bateria_usada": "completa (privada)",
- "1_expansion_D2": {
-  "problemas_distintos": 73,
-  "presentes_en_bateria": 0,
-  "jaccard_maximo": 0.448,
+ "1_enunciados_D2": {
+  "enunciados_distintos": 22,
+  "vinculos_por_ejemplo": 3,
+  "jaccard_maximo": 0.441,
+  "solo_datos_del_corpus": true,
   "ok": true
  },
  "2_particion_y_familias": {

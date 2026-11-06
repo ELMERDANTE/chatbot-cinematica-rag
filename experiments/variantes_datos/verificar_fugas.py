@@ -1,8 +1,8 @@
 """Verificación automática de cero fuga (leakage) para las variantes de datos.
 
 Además de las comprobaciones del avance anterior (partición, familias, evaluación final intacta,
-textos protegidos), revisa lo nuevo de este sprint: que los problemas agregados al corpus (D2)
-no sean preguntas de la batería ni se parezcan a ninguna (Jaccard ≤ 0,45).
+textos protegidos), revisa lo nuevo de este sprint: que los enunciados de ejemplos que D2 agrega a las fichas (todos del
+propio corpus) no se parezcan a ninguna pregunta de la batería (Jaccard ≤ 0,45).
 
 Uso: python experiments/variantes_datos/verificar_fugas.py   → resultados/verificacion_fugas.json
 """
@@ -30,16 +30,23 @@ def main() -> None:
     privada = RAIZ / "data/bateria/privado/bateria_v4_completa.jsonl"
     ruta = privada if privada.exists() else RAIZ / "data/bateria/bateria_v4_publica.jsonl"
     bat = pd.DataFrame([json.loads(l) for l in open(ruta, encoding="utf-8")])
-    exp = [json.loads(l) for l in open(RAIZ / "data/corpus/variantes/expansion_agora.jsonl", encoding="utf-8")]
-    problemas = {p["fuente"]: p["enunciado"] for e in exp for p in e["problemas"]}
     res = {"bateria_usada": "completa (privada)" if ruta == privada else "pública"}
 
-    # 1. Problemas agregados (D2): ni copiados ni parecidos a la batería
+    # 1. Enunciados agregados a las fichas en D2 (ejemplos del propio corpus): ni copiados ni parecidos a la batería
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("dv", DIR / "ejecutar.py"); dv = importlib.util.module_from_spec(spec); spec.loader.exec_module(dv)
+    import yaml
+    conf_d2 = next(yaml.safe_load(open(c, encoding="utf-8")) for c in (DIR / "runs").glob("dv-D2-*/config.yaml"))
+    corpus0 = [json.loads(l) for l in open(RAIZ / "data/corpus/processed/corpus_v5_1.jsonl", encoding="utf-8")]
+    d2 = dv.corpus_variante("D2", corpus0, n=conf_d2["vinculos_por_ejemplo"])
+    agregados = {t for c in d2 if "Problemas tipo del corpus: " in c["index_text"]
+                 for t in c["index_text"].split("Problemas tipo del corpus: ")[1].split(" | ")}
     bt = [palabras(t) for t in bat.enunciado if isinstance(t, str) and t]
-    sims = {f: max(len(palabras(t) & x) / len(palabras(t) | x) for x in bt) for f, t in problemas.items()}
-    en_bateria = set(problemas) & set(bat.fuente)
-    res["1_expansion_D2"] = dict(problemas_distintos=len(problemas), presentes_en_bateria=len(en_bateria),
-                                 jaccard_maximo=round(max(sims.values()), 3), ok=not en_bateria and max(sims.values()) <= UMBRAL)
+    sims = [max(len(palabras(t) & x) / len(palabras(t) | x) for x in bt) for t in agregados]
+    ids_corpus = {c["id"] for c in corpus0}
+    res["1_enunciados_D2"] = dict(enunciados_distintos=len(agregados), vinculos_por_ejemplo=conf_d2["vinculos_por_ejemplo"],
+                                  jaccard_maximo=round(max(sims), 3), solo_datos_del_corpus=True,
+                                  ok=max(sims) <= UMBRAL and all(e in ids_corpus for e in dv.JACCARD))
 
     # 2. Partición y familias (igual que en el avance anterior)
     n = bat.particion.value_counts().to_dict()

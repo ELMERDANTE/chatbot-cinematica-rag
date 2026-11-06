@@ -1,0 +1,17 @@
+variable,valor,tasa_fallo@5,n
+practica,0,0.143,63
+practica,1,0.598,189
+subtema,MCU,0.333,51
+subtema,MPCL,0.49,51
+subtema,MRU,0.4,50
+subtema,MRUV,0.64,50
+subtema,MVCL,0.56,50
+material_generado,0,0.596,193
+material_generado,1,0.119,59
+cobertura_parcial,0,0.467,242
+cobertura_parcial,1,0.9,10
+parecida_a_ejemplo_del_corpus,0,0.475,240
+parecida_a_ejemplo_del_corpus,1,0.667,12
+solapamiento (terciles),bajo,0.821,84
+solapamiento (terciles),medio,0.5,86
+solapamiento (terciles),alto,0.122,82

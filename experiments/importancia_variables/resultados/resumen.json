@@ -1,0 +1,24 @@
+{
+ "bateria": "completa (privada)",
+ "configuracion": "V1 (sin enrutador) + corpus v5.1 (D0)",
+ "linea_base": {
+  "recall5_cv": 0.4648,
+  "recall5_val": 0.4444
+ },
+ "modelos": {
+  "regresion_logistica": {
+   "auc_cv_desarrollo": 0.837,
+   "auc_cv_de": 0.085,
+   "auc_validacion": 0.866
+  },
+  "bosque_aleatorio": {
+   "auc_cv_desarrollo": 0.844,
+   "auc_cv_de": 0.061,
+   "auc_validacion": 0.839
+  }
+ },
+ "n_desarrollo": 180,
+ "n_validacion": 72,
+ "fallo_desarrollo": 0.483,
+ "fallo_validacion": 0.486
+}

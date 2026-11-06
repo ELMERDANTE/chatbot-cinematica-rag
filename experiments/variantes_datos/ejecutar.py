@@ -46,24 +46,61 @@ SEMILLA, K_MAX, PRINCIPAL = 20261015, 10, "recall@5"
 VARIANTES = {
     "D0": dict(nombre="D0 · Baseline: corpus v5.1", cambio="—"),
     "D1": dict(nombre="D1 · Sin campos estructurados", cambio="Se indexa solo título + contenido (sin ecuaciones, condiciones ni error frecuente)"),
-    "D2": dict(nombre="D2 · + Problemas reales de Ágora", cambio="Se agregan al texto indexado de cada ficha hasta 5 problemas de la reserva de Ágora que la usan"),
+    "D2": dict(nombre="D2 · + Enunciados de ejemplos del corpus", cambio="Se agrega al texto indexado de cada ficha de teoría/procedimiento el enunciado de los ejemplos resueltos del corpus de su mismo subtema con los que se vincula (filtro anti-fuga Jaccard ≤ 0,45)"),
 }
+N_VINCULOS_GRID = (1, 2, 3)   # n.º de fichas con que se vincula cada ejemplo; se elige con CV en desarrollo
+UMBRAL = 0.45                 # misma regla anti-fuga del proyecto
+N_VINCULOS: int | None = None # se fija con elegir_n() (CV en desarrollo)
 
 
 def texto_sin_campos(c: dict) -> str:
     return "\n".join(l for l in c["index_text"].split("\n") if not l.startswith(("Relaciones:", "Condiciones:", "Error frecuente:")))
 
 
-def corpus_variante(nombre: str, corpus: list[dict], umbral: float = 0.45) -> list[dict]:
+def vincular_ejemplos(corpus: list[dict], n: int) -> dict[str, list[dict]]:
+    """Vincula cada ejemplo resuelto con sus n fichas de teoría/procedimiento más parecidas del MISMO subtema.
+
+    El vínculo se calcula solo con textos del corpus (BM25 con raíces entre el ejemplo y las fichas); no usa
+    ninguna pregunta ni etiqueta de la batería."""
+    ejemplos = [c for c in corpus if c.get("tipo") == "ejemplo"]
+    tp = [c for c in corpus if c.get("tipo") != "ejemplo"]
+    enlaces: dict[str, list[dict]] = {}
+    for sub in sorted({c["subtema_proyecto"] for c in ejemplos}):
+        fichas = [c for c in tp if c["subtema_proyecto"] == sub]
+        bus = fe.indice(fe.VARIANTES["V1"], fichas)[0]
+        for e in [c for c in ejemplos if c["subtema_proyecto"] == sub]:
+            for d, _ in bus.buscar(e["titulo"] + ". " + e["problema"] + " " + " ".join(e["pasos"]), n):
+                enlaces.setdefault(d, []).append(e)
+    return enlaces
+
+
+JACCARD = json.load(open(RAIZ / "data/corpus/variantes/ejemplos_jaccard.json", encoding="utf-8"))
+
+
+def corpus_variante(nombre: str, corpus: list[dict], umbral: float = UMBRAL, n: int | None = None) -> list[dict]:
     if nombre == "D0":
         return corpus
     if nombre == "D1":
         return [{**c, "index_text": texto_sin_campos(c)} for c in corpus]
-    exp = {json.loads(l)["ficha"]: json.loads(l)["problemas"]
-           for l in open(RAIZ / "data/corpus/variantes/expansion_agora.jsonl", encoding="utf-8")}
-    exp = {f: [p for p in ps if p["jaccard_max_bateria"] <= umbral] for f, ps in exp.items()}
-    return [{**c, "index_text": c["index_text"] + ("\nProblemas tipo de la academia: " + " | ".join(p["enunciado"] for p in exp[c["id"]])
-                                                   if exp.get(c["id"]) else "")} for c in corpus]
+    n = n or N_VINCULOS
+    assert n, "primero elegir n con elegir_n()"
+    enl = vincular_ejemplos(corpus, n)
+    enl = {f: [e for e in es if JACCARD[e["id"]] <= umbral] for f, es in enl.items()}
+    return [{**c, "index_text": c["index_text"] + ("\nProblemas tipo del corpus: " + " | ".join(e["problema"] for e in enl[c["id"]])
+                                                   if enl.get(c["id"]) else "")} for c in corpus]
+
+
+def elegir_n(corpus0: list[dict], dev: pd.DataFrame) -> tuple[int, list[dict]]:
+    """Elige el n.º de vínculos por ejemplo con la CV de 5 particiones en desarrollo (validación no se mira)."""
+    global N_VINCULOS
+    filas = [dict(n_vinculos=n, recall5_cv=round(float(cv(corpus_variante("D2", corpus0, n=n), dev)["recall@5"].mean()), 4))
+             for n in N_VINCULOS_GRID]
+    N_VINCULOS = int(max(filas, key=lambda f: f["recall5_cv"])["n_vinculos"])
+    return N_VINCULOS, filas
+
+
+def agregados(corpus: list[dict]) -> int:
+    return sum(c["index_text"].split("Problemas tipo del corpus: ")[1].count(" | ") + 1 for c in corpus if "Problemas tipo del corpus: " in c["index_text"])
 
 
 CFG = dict(fe.VARIANTES["V1"])      # buscador fijo: palabras vacías + raíces, sin enrutador
@@ -91,11 +128,16 @@ def main():
     fecha = dt.datetime.now(dt.timezone(dt.timedelta(hours=-5))).isoformat(timespec="seconds")
     print(f"Batería {fuente}: desarrollo {len(dev)} · validación {len(val)}")
 
+    # Elegir n (vínculos por ejemplo) SOLO con CV en desarrollo, antes de mirar validación
+    _, filas_n = elegir_n(corpus0, dev)
+    print("Elección de n por CV:", filas_n, "→", N_VINCULOS)
+
     res, cvs, extra = {}, {}, {}
     for v in VARIANTES:
         corpus = corpus_variante(v, corpus0)
         cvdf = cv(corpus, dev); cvdf.insert(0, "variante", v); cvs[v] = cvdf
         conf = {"experimento": "variantes-datos", "variante": v, **CFG, "enrutador": False, "corpus": VARIANTES[v]["nombre"],
+                **({"vinculos_por_ejemplo": N_VINCULOS, "umbral_jaccard": UMBRAL} if v == "D2" else {}),
                 "k_max": K_MAX, "semilla": SEMILLA, "bateria": "bateria_v4", "particion_evaluada": "validacion"}
         texto_conf = yaml.safe_dump(conf, allow_unicode=True, sort_keys=False)
         chash = hashlib.sha256(texto_conf.encode()).hexdigest()[:12]; run_id = f"dv-{v}-{chash}"
@@ -122,6 +164,7 @@ def main():
         print(f"{v}: Recall@5 = {resumen['recall@5']:.3f} · run {run_id}")
 
     R = SALIDA / "resultados"; R.mkdir(exist_ok=True)
+    pd.DataFrame(filas_n).to_csv(R / "eleccion_n_D2.csv", index=False)
     filas = []
     for v, r in res.items():
         lo, hi = ic_bootstrap(r[PRINCIPAL])
@@ -145,15 +188,17 @@ def main():
     porsub = pd.DataFrame({v: r.groupby("subtema")[PRINCIPAL].mean() for v, r in res.items()}).round(3); porsub.to_csv(R / "recall5_por_subtema.csv")
     json.dump(dict(fecha=fecha, commit=commit, bateria=fuente, n_desarrollo=len(dev), n_validacion=len(val),
                    cv=json.loads(cvres.to_json()), extra=extra), open(R / "resumen.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    # Sensibilidad de D2: ¿la mejora se mantiene si se exige que los problemas agregados se parezcan MENOS a la batería?
+    # Sensibilidad de D2 al filtro anti-fuga: sin filtro (1,0) muestra cuánto «mejora» si se trasladan
+    # a las fichas ejemplos parecidos al examen; con filtros más estrictos, si algo de la mejora es robusto.
     sens = []
-    for umbral in (0.45, 0.40, 0.35, 0.30):
+    for umbral in (1.0, 0.45, 0.40, 0.35):
         corpus = corpus_variante("D2", corpus0, umbral)
-        n = sum(c["index_text"].count("Problemas tipo") and (c["index_text"].split("Problemas tipo de la academia: ")[1].count(" | ") + 1) for c in corpus)
         r = fe.evaluar(fe.indice(CFG, corpus)[0], val)
         d = diferencia_pareada(res["D0"][PRINCIPAL], r[PRINCIPAL])
-        sens.append(dict(umbral_jaccard=umbral, problemas_agregados=n, recall5=r[PRINCIPAL].mean(),
-                         delta_vs_D0=d["diferencia"], p=d["p_bootstrap"]))
+        sens.append(dict(umbral_jaccard="sin filtro" if umbral == 1.0 else umbral,
+                         ejemplos_usados=sum(v <= umbral for v in JACCARD.values()), enunciados_agregados=agregados(corpus),
+                         recall5=r[PRINCIPAL].mean(), delta_vs_D0=d["diferencia"],
+                         ic95=f"[{d['ic95'][0]:+.3f}; {d['ic95'][1]:+.3f}]", p=d["p_bootstrap"]))
     sens = pd.DataFrame(sens); sens.to_csv(R / "sensibilidad_umbral_D2.csv", index=False); print(sens.round(3))
     # Prueba adicional: ¿cuánto aportaba el enrutador de subtema (V3) que se retiró?
     enr_filas = []

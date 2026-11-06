@@ -15,7 +15,7 @@ sys.path.insert(0, str(RAIZ / "src"))
 from eda_utils import SERIE, TINTA_2, estilo  # noqa: E402
 
 RES = Path(__file__).resolve().parent / "resultados"
-ETIQ = {"D0": "D0 · corpus v5.1 (baseline)", "D1": "D1 · sin campos estructurados", "D2": "D2 · + problemas de Ágora"}
+ETIQ = {"D0": "D0 · corpus v5.1 (baseline)", "D1": "D1 · sin campos estructurados", "D2": "D2 · + enunciados de ejemplos del corpus"}
 COL = {"D0": SERIE[0], "D1": SERIE[1], "D2": SERIE[2]}
 
 

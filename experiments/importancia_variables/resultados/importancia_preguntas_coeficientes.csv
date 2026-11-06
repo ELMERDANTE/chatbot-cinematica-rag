@@ -1,0 +1,15 @@
+variable,coeficiente_estandarizado,odds_ratio_por_1_de
+solapamiento_con_ficha_correcta,-2.084,0.12
+palabras_enunciado,-0.508,0.6
+subtema_MRU,-0.323,0.72
+nivel,-0.186,0.83
+fichas_esperadas,-0.114,0.89
+subtema_MCU,-0.042,0.96
+subtema_MRUV,-0.039,0.96
+subtema_MVCL,0.132,1.14
+parecida_a_ejemplo_del_corpus,0.152,1.16
+practica,0.159,1.17
+cobertura_parcial,0.205,1.23
+subtema_MPCL,0.271,1.31
+material_generado,0.459,1.58
+cantidad_de_numeros,1.034,2.81
